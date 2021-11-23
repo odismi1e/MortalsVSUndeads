@@ -2,32 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Swordsman : Health
+public class Swordsman : Entity
 {
     private bool _attack=true;
     private bool checkSecurity = true;
 
     private Coroutine coroutine;
 
-    private int _damage;
-    private float _attackSpeed;
-    private Health _enemy;
+    private Entity _enemy;
     private int _state;
+
     private void Start()
     {
-        _healthMax = UnitManager.Instance.SwordsmanHealth;
+        _healthMax = GameManager.Instance.UnitManager.SwordsmanHealth;
         _healthNow = _healthMax;
-        _damage = UnitManager.Instance.SwordsmanDamage;
-        _attackSpeed = UnitManager.Instance.SwordsmanAttackSpeed;
+        _damage = GameManager.Instance.UnitManager.SwordsmanDamage;
+        _attackSpeed = GameManager.Instance.UnitManager.SwordsmanAttackSpeed;
+
+        GameController.Instance.Unit.Add(gameObject.GetComponent<Entity>());
     }
 
     private void Update()
     {
-        if(Active)
-        {
             if (_healthNow <= 0)
             {
-                Destroy(gameObject);
+                GameController.Instance.UnitDeleteList(gameObject);
             }
             if(_state==2 && checkSecurity)
             {
@@ -40,7 +39,7 @@ public class Swordsman : Health
             switch (_state)
             {
                 case 0:
-                    _damageAbsorption = 1;
+                    _damageAbsorption = 0;
                     if (!_attack)
                     {
                         StopCoroutine(coroutine);
@@ -48,14 +47,14 @@ public class Swordsman : Health
                     _attack = true;
                     break;
                 case 1:
-                    _damageAbsorption = 1;
+                    _damageAbsorption = 0;
                     if (_attack)
                     {
                         coroutine=StartCoroutine(Attack());
                     }
                     break;
                 case 2:
-                    _damageAbsorption = UnitManager.Instance.SwordsmanDamageAbsorption;
+                    _damageAbsorption = GameManager.Instance.UnitManager.SwordsmanDamageAbsorption;
                     if (!_attack)
                     {
                         StopCoroutine(coroutine);
@@ -63,9 +62,8 @@ public class Swordsman : Health
                     _attack = true;
                     break;
             }
-        }
     }
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
         CheckEnemy();
     }
@@ -73,17 +71,17 @@ public class Swordsman : Health
     {
         _attack = false;
         yield return new WaitForSeconds(_attackSpeed);
-        _enemy.DealingDamage(_damage);
+        _enemy.ApplyDamage(_damage);
         coroutine = StartCoroutine(Attack());
     }
-    private Health SearchEnemies()
+    private Entity SearchEnemies()
     {
-        Collider[] colliders =Physics.OverlapSphere(gameObject.transform.position, gameObject.transform.localScale.x);
+        Collider2D[] colliders =Physics2D.OverlapCircleAll(gameObject.transform.position, gameObject.transform.localScale.x);
         for(int i=0;i<colliders.Length;i++)
         {
             if(colliders[i].gameObject.tag=="Enemy")
             {
-                return colliders[i].gameObject.GetComponent<Health>();
+                return colliders[i].gameObject.GetComponent<Entity>();
             }
         }
         return null;
@@ -91,7 +89,7 @@ public class Swordsman : Health
     private int QuantityEnemies()
     {
         int quantityEnemies = 0;
-        Collider[] colliders = Physics.OverlapSphere(gameObject.transform.position, gameObject.transform.localScale.x);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(gameObject.transform.position, gameObject.transform.localScale.x);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject.tag == "Enemy")
@@ -103,16 +101,16 @@ public class Swordsman : Health
     }
     private void CheckEnemy()
     {
-        int sie = QuantityEnemies();
-        Health searchEnemies = SearchEnemies();
-        if (sie == 1)
+        int size = QuantityEnemies();
+        Entity searchEnemies = SearchEnemies();
+        if (size == 1)
         {
             _state = 1;
             _enemy = searchEnemies;
         }
         else
         {
-            if (sie >= 2)
+            if (size >= 2)
             {
                 _state = 2;
                 _enemy = searchEnemies;

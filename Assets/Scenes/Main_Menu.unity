@@ -366,7 +366,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f494292c84a220b459d5dc09ec47d8a2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 51acdc2b2f8ddc2409cd4068406d1d70, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 1584258493}
   - component: {fileID: 1584258492}
   m_Layer: 5
-  m_Name: Blank Button 1
+  m_Name: Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -834,7 +834,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 39981c180e8004342a1dbacd290f24db, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6be3969a541d90c459ceff01951c9e44, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -970,7 +970,7 @@ GameObject:
   - component: {fileID: 1733204821}
   - component: {fileID: 1733204820}
   m_Layer: 5
-  m_Name: Blank Button 2
+  m_Name: Deck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 39981c180e8004342a1dbacd290f24db, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e8ebbd499192c534c8b47d84b14e8a58, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -9,18 +9,18 @@ public class WaveSpawner : MonoBehaviour
 
     private GameObject _enemy;
 
-    public int NumberOfLiveEnemies;
-
     private int _currentEnemyIndex;
     private int _currentWaveIndex;
     private int _enemiesLeftToSpawn;
     private int _indexNextWave;
 
+    public int NumberOfLiveEnemies;
+
     private void Start()
     {
         _indexNextWave = 1;
         _enemiesLeftToSpawn = _waves[0].WaveSettings.Length;
-        SpawnersPosition(GridController.Instance.CentreGrid, GridController.Instance.HorizontalCount, GridController.Instance.HeightGrid);
+        //SpawnersPosition(GridController.Instance.CentreGrid, GridController.Instance.HorizontalCount, GridController.Instance.HeightGrid);
         LaunchWave();
     }
     private void FixedUpdate()
@@ -36,16 +36,13 @@ public class WaveSpawner : MonoBehaviour
     {
         if(_enemiesLeftToSpawn > 0)
         {
-            yield return new WaitForSeconds(_waves[_currentWaveIndex]
-                .WaveSettings[_currentEnemyIndex]
-                .SpawnDelay);
+            yield return null;
             if (_waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].Enemy != null &&
                _waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].NeededSpawner!=null)
             {
-               _enemy= Instantiate(_waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].Enemy,
-                    _waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].NeededSpawner.transform.position, Quaternion.identity);
-                _enemy.GetComponent<Health>().waveSpawner = gameObject.GetComponent<WaveSpawner>();
-                NumberOfLiveEnemies++;
+                StartCoroutine(CreationEnemy(_waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].Enemy,
+                    _waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].NeededSpawner.transform,
+                    _waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].SpawnDelay));
             }
             _enemiesLeftToSpawn--;
             _currentEnemyIndex++;
@@ -61,17 +58,25 @@ public class WaveSpawner : MonoBehaviour
             }
         }
     }
+    private IEnumerator CreationEnemy(GameObject enemy,Transform transform,float spawnDelay)
+    {
+        NumberOfLiveEnemies++;
+        GameObject instantiateEnemy;
+        yield return new WaitForSeconds(spawnDelay);
+        instantiateEnemy = Instantiate(enemy, transform.position, Quaternion.identity);
+        instantiateEnemy.GetComponent<Entity>().waveSpawner= gameObject.GetComponent<WaveSpawner>();
+    }
 
     public void LaunchWave()
     {
         StartCoroutine(SpawnEnemyInWave());
     }
-    private void SpawnersPosition(Vector2 vector2,int col,float height)
+    public void SpawnersPosition(Vector2 vector2,int col,float height,float scale=0)
     {
-        _spawners.transform.position = new Vector3(37, vector2.y, 0);
-        for(int i=0;i<6;i++)
+        _spawners.transform.position = new Vector3(37+scale/2, vector2.y, 0);
+        for (int i=0;i<6;i++)
         {
-            _spawners.transform.GetChild(i).position = new Vector3(37,(vector2.y-height/2)+((height*(2*i+1)) / (col*2)),0);
+            _spawners.transform.GetChild(i).position = new Vector3(37+scale/2, (vector2.y-height/2)+((height*(2*i+1)) / (col*2)),0);
         }
     }
 }

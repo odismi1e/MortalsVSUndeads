@@ -1,52 +1,58 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class GridController : MonoBehaviour
 {
-    [SerializeField] public float HeightGrid;
-    [SerializeField] public float WidthGrid;
-    [SerializeField] public int HorizontalCount;
-    [SerializeField] public int VerticalCount;
-    [SerializeField] public Vector2 CentreGrid;
     [SerializeField] private GameObject _gridTransform;
+    [SerializeField] private WaveSpawner _waveSpawner;
+    [SerializeField] private GameObject _spawner;
 
+    private float _scaleSpawner;
+
+    public static GridController Instance;
+
+    public float HeightGrid;
+    public float WidthGrid;
+    public int HorizontalCount;
+    public int VerticalCount;
+    public Vector2 CentreGrid;
+
+    public GameObject[,] Grid;
 
     public CardHolderManager _cardHolderManager;
-    public GameObject CardHolder;
-    private static GridController _instance;
 
-    public static GridController Instance { get { return _instance; } }
-
-    private GameObject[,] _grid;
-
-    public GameObject[,] Grid
-    {
-        get => _grid;
-        set
-        {
-            _grid = value;
-        }
-    }   
+    public RectTransform RectTransform;
 
     private void Awake()
     {
-        if (_instance != null && _instance != this)
+        if (Instance != null && Instance != this)
+        {
             Destroy(this.gameObject);
+        }
         else
-            _instance = this; 
-    _grid= new GameObject[VerticalCount, HorizontalCount];
+        {
+            Instance = this;
+        }
+        Grid= new GameObject[VerticalCount, HorizontalCount];
         GridTransform(_gridTransform);
+    }
+    private void Start()
+    {
+        GameController.Instance.MagnificationFactor = (float)WidthGrid / (float)_gridTransform.transform.localScale.x;
+        _waveSpawner.SpawnersPosition(GridController.Instance.CentreGrid, GridController.Instance.HorizontalCount, GridController.Instance.HeightGrid,_scaleSpawner* GameController.Instance.MagnificationFactor-_scaleSpawner);
     }
 
     public void GridTransform(GameObject gameObject)
     {
-        HeightGrid = gameObject.transform.localScale.y*((float)Screen.currentResolution.height/(float)1080f);
-        WidthGrid = gameObject.transform.localScale.x*((float)Screen.currentResolution.width/(float)1920f);
-        CentreGrid = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
-        gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x * ((float)Screen.currentResolution.width / (float)1920f),
-            gameObject.transform.localScale.y * ((float)Screen.currentResolution.height / (float)1080f));
+        Vector3[] v = new Vector3[4];
+        RectTransform.GetWorldCorners(v);
+
+        HeightGrid = v[1].y - v[0].y;
+        WidthGrid = v[2].x - v[0].x;
+        CentreGrid = RectTransform.position;
+
+        _scaleSpawner = _spawner.transform.position.x - v[0].x;
     }
 }

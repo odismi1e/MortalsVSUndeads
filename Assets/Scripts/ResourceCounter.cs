@@ -5,21 +5,20 @@ using UnityEngine;
 
 public class ResourceCounter : MonoBehaviour
 {
+    public static ResourceCounter Instance;
+
     public int Resources;
     public TMP_Text RecourcesText;
 
-    private static ResourceCounter _instance;
-    public static ResourceCounter Instance { get { return _instance; } }
-
     private void Awake()
     {
-        if(_instance!=null && _instance!=this)
+        if(Instance!=null && Instance!=this)
         {
             Destroy(this.gameObject);
         }
         else
         {
-            _instance = this;
+            Instance = this;
         }
     }
 

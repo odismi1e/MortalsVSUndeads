@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crossbowman : Health
+public class Crossbowman : Entity
 {
     [SerializeField] private Transform _transformCrossbow;
     [SerializeField] private GameObject _crossbowArrow;
@@ -12,23 +12,22 @@ public class Crossbowman : Health
 
     private Coroutine coroutine;
 
-    private float _attackSpeed;
     private int _state;
     private void Start()
     {
-        _healthMax = UnitManager.Instance.SwordsmanHealth;
+        _healthMax = GameManager.Instance.UnitManager.SwordsmanHealth;
         _healthNow = _healthMax;
-        _attackSpeed = UnitManager.Instance.CrossbowmanAttackSpeed;
+        _attackSpeed = GameManager.Instance.UnitManager.CrossbowmanAttackSpeed;
         StartCoroutine(CheckSecurity());
+
+        GameController.Instance.Unit.Add(gameObject.GetComponent<Entity>());
     }
 
     private void FixedUpdate()
     {
-        if (Active)
-        {
             if (_healthNow <= 0)
             {
-                Destroy(gameObject);
+                GameController.Instance.UnitDeleteList(gameObject);
             }
             if(checkSecurity)
             {
@@ -50,7 +49,6 @@ public class Crossbowman : Health
                     }
                     break;
             }
-        }
     }
     private IEnumerator Attack()
     {
@@ -62,8 +60,8 @@ public class Crossbowman : Health
     private int QuantityEnemies()
     {
         int quantityEnemies = 0;
-        Collider[] colliders = Physics.OverlapBox(new Vector3(GridController.Instance.CentreGrid.x,gameObject.transform.position.y,0)
-            , new Vector3(GridController.Instance.WidthGrid, .2f, 0.2f));
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(gameObject.transform.position.x+(GridController.Instance.WidthGrid / 2 + GridController.Instance.CentreGrid.x - gameObject.transform.position.x)/2,gameObject.transform.position.y),
+             new Vector2(GridController.Instance.WidthGrid/2+ GridController.Instance.CentreGrid.x-gameObject.transform.position.x, .2f),0);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject.tag == "Enemy")
@@ -75,8 +73,8 @@ public class Crossbowman : Health
     }
     private void CheckEnemy()
     {
-        int sie = QuantityEnemies();
-        if (sie >= 1)
+        int size = QuantityEnemies();
+        if (size >= 1)
         {
             _state = 1;
         }
@@ -88,7 +86,7 @@ public class Crossbowman : Health
     private IEnumerator CheckSecurity()
     {
         checkSecurity = false;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.25f);
         CheckEnemy();
         checkSecurity = true;
     }

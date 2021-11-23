@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d87df6d111ee304f84b26873a6bc9ab, type: 3}
   m_Name: Crossbowman
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 8e9d2fb48aad9264b826ecabc35eca0f, type: 3}
+  Icon: {fileID: 21300000, guid: 4c0c18526b9ef08448cc9498e8f64a3b, type: 3}
   Prefab: {fileID: 6889890136913069975, guid: 02c7380c67e62bb40a5a1a618b0e790e, type: 3}
-  indName: 1
+  id: 1

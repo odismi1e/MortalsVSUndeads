@@ -2,31 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Health
+public class Enemy : Entity
 {
     private bool _attack = true;
 
     private Coroutine coroutine;
 
-    private int _damage;
-    private float _attackSpeed;
-    private float _speed;
-    private Health _unit;
+    private Entity _unit;
     private int _state;
     private void Start()
     {
-        _healthMax = EnemyUnitManager.Instance.EnemyHealth;
+        _healthMax = GameManager.Instance.EnemyUnitManager.EnemyHealth;
         _healthNow = _healthMax;
-        _damage = EnemyUnitManager.Instance.EnemyDamage;
-        _attackSpeed = EnemyUnitManager.Instance.EnemyAttackSpeed;
-        _speed = EnemyUnitManager.Instance.EnemySpeed;
-        Active = true;
+        _damage = GameManager.Instance.EnemyUnitManager.EnemyDamage;
+        _attackSpeed = GameManager.Instance.EnemyUnitManager.EnemyAttackSpeed;
+        _speed = GameManager.Instance.EnemyUnitManager.EnemySpeed;
+        _damageAbsorption = GameManager.Instance.EnemyUnitManager.Armor;
     }
 
     private void FixedUpdate()
     {
-        if (Active)
-        {
             if (_healthNow <= 0)
             {
                 waveSpawner.NumberOfLiveEnemies--;
@@ -44,7 +39,7 @@ public class Enemy : Health
                         StopCoroutine(coroutine);
                     }
                     _attack = true;
-                    gameObject.transform.position = new Vector3(gameObject.transform.position.x - 0.02f * _speed, gameObject.transform.position.y,
+                    gameObject.transform.position = new Vector3(gameObject.transform.position.x - Time.fixedDeltaTime * _speed*GameController.Instance.MagnificationFactor, gameObject.transform.position.y,
                         gameObject.transform.position.z);
                     break;
                 case 1:
@@ -54,9 +49,8 @@ public class Enemy : Health
                     }
                     break;
             }
-        }
     }
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
         CheckUnit();
     }
@@ -64,17 +58,17 @@ public class Enemy : Health
     {
         _attack = false;
         yield return new WaitForSeconds(_attackSpeed);
-        _unit.DealingDamage(_damage);
+        _unit.ApplyDamage(_damage);
         coroutine = StartCoroutine(Attack());
     }
-    private Health SearchEnemies()
+    private Entity SearchEnemies()
     {
-        Collider[] colliders = Physics.OverlapSphere(gameObject.transform.position, gameObject.transform.localScale.x);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(gameObject.transform.position, gameObject.transform.localScale.x/1.9f);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject.tag == "Unit")
             {
-                return colliders[i].gameObject.GetComponent<Health>();
+                return colliders[i].gameObject.GetComponent<Entity>();
             }
         }
         return null;
@@ -82,7 +76,7 @@ public class Enemy : Health
     private int QuantityUnits()
     {
         int quantityEnemies = 0;
-        Collider[] colliders = Physics.OverlapSphere(gameObject.transform.position, gameObject.transform.localScale.x);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(gameObject.transform.position, gameObject.transform.localScale.x/1.9f);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject.tag == "Unit")

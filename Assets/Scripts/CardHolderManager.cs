@@ -7,16 +7,15 @@ using UnityEngine.UI;
 
 public class CardHolderManager : MonoBehaviour
 {
-    [Header("Card Holder Parameters")]
     [SerializeField] private Transform _cardHolderPosition;
     [SerializeField] private GameObject _card;
     [SerializeField] private Card[] _cardSO;
     private int _cardsAmmount;
     private int _ind = 0;
 
-    [Header("Card Parameters")]
-    [SerializeField] public GameObject[] SpawnCards;
     private Sprite _icon;
+
+    public GameObject[] SpawnCards;
 
     void Start()
     {
@@ -45,13 +44,25 @@ public class CardHolderManager : MonoBehaviour
 
         switch(_cardSO[_ind].id)
         {
-            case (int)Unit.Crossbowman:
-                card.GetComponentInChildren<TMP_Text>().text = UnitManager.Instance.CrossbowmanMana.ToString();
-                cardManager.Mana = UnitManager.Instance.CrossbowmanMana;
+            case (int)Cards.Crossbowman:
+                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.UnitManager.CrossbowmanMana.ToString();
+                cardManager.Mana = GameManager.Instance.UnitManager.CrossbowmanMana;
                 break;
-            case (int)Unit.Swordsman:
-                card.GetComponentInChildren<TMP_Text>().text = UnitManager.Instance.SwordsmanMana.ToString();
-                cardManager.Mana = UnitManager.Instance.SwordsmanMana;
+            case (int)Cards.Swordsman:
+                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.UnitManager.SwordsmanMana.ToString();
+                cardManager.Mana = GameManager.Instance.UnitManager.SwordsmanMana;
+                break;
+            case (int)Cards.Healing:
+                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.EnhancementsCardManager.HealCardManaCost.ToString();
+                cardManager.Mana = GameManager.Instance.EnhancementsCardManager.HealCardManaCost;
+                break;
+            case (int)Cards.Rage:
+                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.EnhancementsCardManager.RageCardManaCost.ToString();
+                cardManager.Mana = GameManager.Instance.EnhancementsCardManager.RageCardManaCost;
+                break;
+            case (int)Cards.FieryExplosion:
+                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.EnhancementsCardManager.FieryExplosionManaCost.ToString();
+                cardManager.Mana = GameManager.Instance.EnhancementsCardManager.FieryExplosionManaCost;
                 break;
         }
 
