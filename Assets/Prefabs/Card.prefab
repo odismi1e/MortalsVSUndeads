@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 8557683814635287967}
   - component: {fileID: 8578026127138169057}
   - component: {fileID: 3789698831257012653}
-  - component: {fileID: -2807848979452574841}
+  - component: {fileID: 966250513070951361}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -172,7 +172,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 297.19}
+  m_SizeDelta: {x: 200, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8557683814635287967
 CanvasRenderer:
@@ -229,7 +229,7 @@ MonoBehaviour:
   Mana: 0
   CardGrid: {fileID: 8503601138085456652, guid: bf7e3600c4e3e994ea08882a62d92377, type: 3}
   _cardHolderPosition: {fileID: 0}
---- !u!210 &-2807848979452574841
+--- !u!210 &966250513070951361
 SortingGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,6 +237,6 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8113437957163111186}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: 619861745
+  m_SortingLayer: 1
+  m_SortingOrder: 0

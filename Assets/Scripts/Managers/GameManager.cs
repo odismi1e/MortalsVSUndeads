@@ -32,7 +32,20 @@ public class GameManager : MonoBehaviour
     public UnitManager UnitManager;
     public EnemyUnitManager EnemyUnitManager;
     public EnhancementsCardManager EnhancementsCardManager;
+    public SpellsCardManager SpellsCardManager;
+
+    public void ScreenScaleFactor()
+    {
+        UnitManager.SwordsmanAttackDistance *= GameController.Instance.ScreenScaleFactor;
+        UnitManager.CrossbowArrowSpeed*= GameController.Instance.ScreenScaleFactor;
+
+        EnemyUnitManager.EnemyAttackDistance*= GameController.Instance.ScreenScaleFactor;
+        EnemyUnitManager.EnemySpeed*= GameController.Instance.ScreenScaleFactor;
+    }
+
+
 }
+
 [System.Serializable]
 public class UnitManager
 {
@@ -40,6 +53,7 @@ public class UnitManager
     public float SwordsmanHealth;
     public float SwordsmanDamage;
     public float SwordsmanAttackSpeed;
+    public float SwordsmanAttackDistance;
     public float SwordsmanDamageAbsorption;
     public int SwordsmanMana;
     [Header("Crossbowman")]
@@ -57,6 +71,7 @@ public class EnemyUnitManager
     public float EnemyHealth;
     public float EnemyDamage;
     public float EnemyAttackSpeed;
+    public float EnemyAttackDistance;
     public float EnemySpeed;
     public float Armor;
 }
@@ -70,12 +85,22 @@ public class EnhancementsCardManager
     public float RageAttackSpeed;
     public float RageDuration;
     public int RageCardManaCost;
-    [Header("FieryExplosion")]
-    public int FieryExplosionWidth;
-    public int FieryExplosionHeight;
-    public float FieryExplosionDamage;
-    public float PasivFieryExplosionDamage;
-    public float FieryExplosionDuration;
-    public int FieryExplosionFrequency;
-    public int FieryExplosionManaCost;
+}
+[System.Serializable]
+public class SpellsCardManager
+{
+    [Header("FireExplosion")]
+    public int FireExplosionWidth;
+    public int FireExplosionHeight;
+    public float FireExplosionDamage;
+    public float DOTFireExplosionDamage;
+    public int FireExplosionDuration;
+    public int FireExplosionManaCost;
+    [Header("IceBlast")]
+    public int IceBlastWidth;
+    public int IceBlastHeight;
+    public float IceBlastDamage;
+    public float IceBlastSpeedDebuff;
+    public float IceBlastDuration;
+    public int IceBlastManaCost;
 }

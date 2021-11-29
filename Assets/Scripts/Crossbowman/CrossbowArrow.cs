@@ -20,7 +20,7 @@ public class CrossbowArrow : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        _tr.position = new Vector3(_tr.position.x+Time.fixedDeltaTime* _crossbowArrowSpeed* GameController.Instance.MagnificationFactor, _tr.position.y,_tr.position.z);
+        _tr.position = new Vector3(_tr.position.x+Time.fixedDeltaTime* _crossbowArrowSpeed, _tr.position.y,_tr.position.z);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

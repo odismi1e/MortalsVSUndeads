@@ -5,9 +5,10 @@ using UnityEngine;
 public class Swordsman : Entity
 {
     private bool _attack=true;
-    private bool checkSecurity = true;
+    private bool _checkSecurity=true;
 
-    private Coroutine coroutine;
+    private Coroutine _attackCoroutine;
+    private Coroutine _checkSecurityCoroutine;
 
     private Entity _enemy;
     private int _state;
@@ -20,6 +21,8 @@ public class Swordsman : Entity
         _attackSpeed = GameManager.Instance.UnitManager.SwordsmanAttackSpeed;
 
         GameController.Instance.Unit.Add(gameObject.GetComponent<Entity>());
+
+        _checkSecurityCoroutine = StartCoroutine(CheckSecurity());
     }
 
     private void Update()
@@ -28,13 +31,9 @@ public class Swordsman : Entity
             {
                 GameController.Instance.UnitDeleteList(gameObject);
             }
-            if(_state==2 && checkSecurity)
-            {
-                StartCoroutine(CheckSecurity());
-            }
             if(_state!=0 && _enemy==null)
             {
-                CheckEnemy();
+              _checkSecurityCoroutine = StartCoroutine(CheckSecurity());
             }
             switch (_state)
             {
@@ -42,7 +41,13 @@ public class Swordsman : Entity
                     _damageAbsorption = 0;
                     if (!_attack)
                     {
-                        StopCoroutine(coroutine);
+                        StopCoroutine(_attackCoroutine);
+                    //StopCoroutine(Attack());
+                    _attack = true;
+                    }
+                    if(_checkSecurity)
+                    {
+                    _checkSecurityCoroutine = StartCoroutine(CheckSecurity());
                     }
                     _attack = true;
                     break;
@@ -50,33 +55,33 @@ public class Swordsman : Entity
                     _damageAbsorption = 0;
                     if (_attack)
                     {
-                        coroutine=StartCoroutine(Attack());
+                        _attackCoroutine=StartCoroutine(Attack());
+
                     }
                     break;
                 case 2:
                     _damageAbsorption = GameManager.Instance.UnitManager.SwordsmanDamageAbsorption;
                     if (!_attack)
                     {
-                        StopCoroutine(coroutine);
+                        StopCoroutine(_attackCoroutine);
+                        _attack = true;
                     }
-                    _attack = true;
+                    //_attack = true;
                     break;
             }
-    }
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        CheckEnemy();
     }
     private IEnumerator Attack()
     {
         _attack = false;
         yield return new WaitForSeconds(_attackSpeed);
         _enemy.ApplyDamage(_damage);
-        coroutine = StartCoroutine(Attack());
+        _attackCoroutine = StartCoroutine(Attack());
     }
     private Entity SearchEnemies()
     {
-        Collider2D[] colliders =Physics2D.OverlapCircleAll(gameObject.transform.position, gameObject.transform.localScale.x);
+        Collider2D[] colliders =Physics2D.OverlapBoxAll
+            (new Vector2(gameObject.transform.position.x + (GameManager.Instance.UnitManager.SwordsmanAttackDistance / 2),gameObject.transform.position.y) ,
+            new Vector2(GameManager.Instance.UnitManager.SwordsmanAttackDistance, 0.1f),0);
         for(int i=0;i<colliders.Length;i++)
         {
             if(colliders[i].gameObject.tag=="Enemy")
@@ -89,7 +94,9 @@ public class Swordsman : Entity
     private int QuantityEnemies()
     {
         int quantityEnemies = 0;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(gameObject.transform.position, gameObject.transform.localScale.x);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll
+            (new Vector2(gameObject.transform.position.x + (GameManager.Instance.UnitManager.SwordsmanAttackDistance / 2), gameObject.transform.position.y),
+            new Vector2(GameManager.Instance.UnitManager.SwordsmanAttackDistance, 0.1f), 0);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject.tag == "Enemy")
@@ -123,9 +130,9 @@ public class Swordsman : Entity
     }
     private IEnumerator CheckSecurity()
     {
-        checkSecurity = false;
+        _checkSecurity = false;
         CheckEnemy();
         yield return new WaitForSeconds(.5f);
-        checkSecurity = true;
+        _checkSecurityCoroutine= StartCoroutine(CheckSecurity());
     }
 }

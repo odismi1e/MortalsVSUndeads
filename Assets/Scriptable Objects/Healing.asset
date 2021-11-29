@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d87df6d111ee304f84b26873a6bc9ab, type: 3}
   m_Name: Healing
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 4c0c18526b9ef08448cc9498e8f64a3b, type: 3}
+  Icon: {fileID: 21300000, guid: bbaf860c83eff40498c5359ec01e8f06, type: 3}
   Prefab: {fileID: 4428925381847444017, guid: 5bd6c0f41aa8d324da13f041289265ef, type: 3}
   id: 2

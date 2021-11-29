@@ -7,14 +7,14 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private Waves[] _waves;
     [SerializeField] private GameObject _spawners;
 
-    private GameObject _enemy;
-
     private int _currentEnemyIndex;
     private int _currentWaveIndex;
     private int _enemiesLeftToSpawn;
     private int _indexNextWave;
 
     public int NumberOfLiveEnemies;
+
+    public Timer Timer;
 
     private void Start()
     {
@@ -28,36 +28,48 @@ public class WaveSpawner : MonoBehaviour
         if (NumberOfLiveEnemies==0 && _currentWaveIndex==_indexNextWave)
         {
             _indexNextWave++;
+            Timer.CountingEnemies();
             LaunchWave();
         }
     }
 
-    private IEnumerator SpawnEnemyInWave()
-    {
-        if(_enemiesLeftToSpawn > 0)
-        {
-            yield return null;
-            if (_waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].Enemy != null &&
-               _waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].NeededSpawner!=null)
-            {
-                StartCoroutine(CreationEnemy(_waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].Enemy,
-                    _waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].NeededSpawner.transform,
-                    _waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].SpawnDelay));
-            }
-            _enemiesLeftToSpawn--;
-            _currentEnemyIndex++;
-            StartCoroutine(SpawnEnemyInWave());
-        }
-        else
-        {
-            if (_currentWaveIndex < _waves.Length - 1)
-            {
-                _currentWaveIndex++;
-                _enemiesLeftToSpawn = _waves[_currentWaveIndex].WaveSettings.Length;
-                _currentEnemyIndex = 0;
-            }
-        }
-    }
+    //private IEnumerator SpawnEnemyInWave()
+    //{
+    //    if(_enemiesLeftToSpawn > 0)
+    //    {
+    //        yield return null;
+    //        if (_waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].Enemy != null &&
+    //           _waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].NeededSpawner!=null)
+    //        {
+    //            StartCoroutine(CreationEnemy(_waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].Enemy,
+    //                _waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].NeededSpawner.transform,
+    //                _waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].SpawnDelay));
+    //        }
+    //        _enemiesLeftToSpawn--;
+    //        _currentEnemyIndex++;
+    //        StartCoroutine(SpawnEnemyInWave());
+    //        //for(int i=0;i<_enemiesLeftToSpawn;i++)
+    //        //{
+    //        //    if (_waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].Enemy != null &&
+    //        //   _waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].NeededSpawner != null)
+    //        //    {
+    //        //        StartCoroutine(CreationEnemy(_waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].Enemy,
+    //        //            _waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].NeededSpawner.transform,
+    //        //            _waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].SpawnDelay));
+    //        //    }
+    //        //    _currentEnemyIndex++;
+    //        //}
+    //    }
+    //    else
+    //    {
+    //        if (_currentWaveIndex < _waves.Length - 1)
+    //        {
+    //            _currentWaveIndex++;
+    //            _enemiesLeftToSpawn = _waves[_currentWaveIndex].WaveSettings.Length;
+    //            _currentEnemyIndex = 0;
+    //        }
+    //    }
+    //}
     private IEnumerator CreationEnemy(GameObject enemy,Transform transform,float spawnDelay)
     {
         NumberOfLiveEnemies++;
@@ -69,15 +81,40 @@ public class WaveSpawner : MonoBehaviour
 
     public void LaunchWave()
     {
-        StartCoroutine(SpawnEnemyInWave());
-    }
-    public void SpawnersPosition(Vector2 vector2,int col,float height,float scale=0)
-    {
-        _spawners.transform.position = new Vector3(37+scale/2, vector2.y, 0);
-        for (int i=0;i<6;i++)
+        //StartCoroutine(SpawnEnemyInWave());
+        for (int i = 0; i < _enemiesLeftToSpawn; i++)
         {
-            _spawners.transform.GetChild(i).position = new Vector3(37+scale/2, (vector2.y-height/2)+((height*(2*i+1)) / (col*2)),0);
+            if (_waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].Enemy != null &&
+           _waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].NeededSpawner != null)
+            {
+                StartCoroutine(CreationEnemy(_waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].Enemy,
+                    _waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].NeededSpawner.transform,
+                    _waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].SpawnDelay));
+            }
+            _currentEnemyIndex++;
         }
+        if (_currentWaveIndex < _waves.Length - 1)
+        {
+            _currentWaveIndex++;
+            _enemiesLeftToSpawn = _waves[_currentWaveIndex].WaveSettings.Length;
+            _currentEnemyIndex = 0;
+        }
+    }
+    public void SpawnersPosition(Vector2 vector2, int col, float height, float scale = 0)
+    {
+        _spawners.transform.position = new Vector3(37 + scale / 2, vector2.y, 0);
+        for (int i = 0; i < 6; i++)
+        {
+            _spawners.transform.GetChild(i).position = new Vector3(37 + scale / 2, (vector2.y - height / 2) + ((height * (2 * i + 1)) / (col * 2)), 0);
+        }
+    }
+    public Waves[] GetWaves()
+    {
+        return _waves;
+    }
+    public int GetCurrentWaveIndex()
+    {
+        return _currentWaveIndex;
     }
 }
 

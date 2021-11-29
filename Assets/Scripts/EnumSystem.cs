@@ -4,5 +4,6 @@
         Crossbowman = 1,
         Healing=2,
         Rage=3,
-        FieryExplosion=4
-}
+        FireExplosion=4,
+        IceBlast=5
+    }

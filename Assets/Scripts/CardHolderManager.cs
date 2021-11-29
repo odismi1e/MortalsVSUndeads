@@ -60,9 +60,13 @@ public class CardHolderManager : MonoBehaviour
                 card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.EnhancementsCardManager.RageCardManaCost.ToString();
                 cardManager.Mana = GameManager.Instance.EnhancementsCardManager.RageCardManaCost;
                 break;
-            case (int)Cards.FieryExplosion:
-                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.EnhancementsCardManager.FieryExplosionManaCost.ToString();
-                cardManager.Mana = GameManager.Instance.EnhancementsCardManager.FieryExplosionManaCost;
+            case (int)Cards.FireExplosion:
+                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.SpellsCardManager.FireExplosionManaCost.ToString();
+                cardManager.Mana = GameManager.Instance.SpellsCardManager.FireExplosionManaCost;
+                break;
+            case (int)Cards.IceBlast:
+                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.SpellsCardManager.IceBlastManaCost.ToString();
+                cardManager.Mana = GameManager.Instance.SpellsCardManager.IceBlastManaCost;
                 break;
         }
 

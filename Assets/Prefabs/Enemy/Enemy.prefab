@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20ca4f8e59685c040b20e5c3f95568d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Active: 0
   HPBar: {fileID: 6378254559870015573}
   Hp: {fileID: 7758383757532556073}
   waveSpawner: {fileID: 0}

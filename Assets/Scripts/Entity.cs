@@ -58,7 +58,15 @@ public class Entity : MonoBehaviour
             {
                 Hp.localScale = new Vector3(_healthNow / _healthMax, 1, 1);
             }
-            HPBar.SetActive(true);
+            if(_healthNow==_healthMax)
+            {
+                HPBar.SetActive(false);
+            }
+            else
+            {
+                HPBar.SetActive(true);
+            }
+            
         }
     }
     public float GetHealthNow()

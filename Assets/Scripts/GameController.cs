@@ -6,6 +6,8 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     static public GameController Instance;
+    public Timer Timer;
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -15,11 +17,10 @@ public class GameController : MonoBehaviour
         else
         {
             Instance = this;
-            MagnificationFactor = (float)Screen.currentResolution.width / (float)1920f;
         }
     }
     public List<Entity> Unit;
-    public float MagnificationFactor;
+    public float ScreenScaleFactor;
     public void UnitDeleteList(GameObject gameObject)
     {
         var entity = gameObject.GetComponent<Entity>();

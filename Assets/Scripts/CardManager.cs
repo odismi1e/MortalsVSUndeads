@@ -160,6 +160,7 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
                     _cardHolderManager.SpawnCards[i].GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1f);
                     _cardHolderManager.SpawnCards[i].transform.localPosition = new Vector3(_cardHolderManager.SpawnCards[i].transform.localPosition.x,
                        _y2, _cardHolderManager.SpawnCards[i].transform.localPosition.z);
+                    //_cardHolderManager.SpawnCards[i].transform.localScale = new Vector3(1.5f,1.5f,1);
                     index  = i;
                 }
                 else
@@ -169,6 +170,7 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
                         _cardHolderManager.SpawnCards[i].GetComponentInChildren<Image>().color = new Color(1, 1, 1, 0.5f);
                         _cardHolderManager.SpawnCards[i].transform.localPosition = new Vector3(_cardHolderManager.SpawnCards[i].transform.localPosition.x,
                         _y1, _cardHolderManager.SpawnCards[i].transform.localPosition.z);
+                        //_cardHolderManager.SpawnCards[i].transform.localScale = new Vector3(1f, 1f, 1);
                     }
                 }
             }
@@ -256,6 +258,7 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
                 _cardHolderManager.SpawnCards[i].transform.localPosition = new Vector3(_cardHolderManager.SpawnCards[i].transform.localPosition.x,
                     _y1,
                     _cardHolderManager.SpawnCards[i].transform.localPosition.z);
+               // _cardHolderManager.SpawnCards[i].transform.localScale = new Vector3(1f, 1f, 1);
             }
         }
     }
