@@ -185,7 +185,7 @@ MonoBehaviour:
     CrossbowmanIgnoringArmor: 2
     CrossbowmanMana: 15
   EnemyUnitManager:
-    EnemyHealth: 250
+    EnemyHealth: 25
     EnemyDamage: 4
     EnemyAttackSpeed: 1
     EnemyAttackDistance: 1
@@ -200,9 +200,9 @@ MonoBehaviour:
   SpellsCardManager:
     FireExplosionWidth: 3
     FireExplosionHeight: 3
-    FireExplosionDamage: 100
-    DOTFireExplosionDamage: 5
-    FireExplosionDuration: 2
+    FireExplosionDamage: 20
+    DOTFireExplosionDamage: 1
+    FireExplosionDuration: 5
     FireExplosionManaCost: 5
     IceBlastWidth: 3
     IceBlastHeight: 3

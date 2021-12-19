@@ -23,11 +23,11 @@ public class Enemy : Entity
 
         StartCoroutine(CheckNearestUnitToAttack());
 
-        
     }
 
     private void FixedUpdate()
     {
+        AnimatorSpeed();
         if (_alive)
         {
             //if (_healthNow <= 0)
