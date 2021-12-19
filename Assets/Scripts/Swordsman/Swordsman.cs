@@ -6,6 +6,7 @@ public class Swordsman : Entity
 {
     private bool _attack=true;
     private bool _checkSecurity=true;
+    private bool _alive = true;
 
     private Coroutine _attackCoroutine;
     private Coroutine _checkSecurityCoroutine;
@@ -22,44 +23,67 @@ public class Swordsman : Entity
 
         GameController.Instance.Unit.Add(gameObject.GetComponent<Entity>());
 
+
         _checkSecurityCoroutine = StartCoroutine(CheckSecurity());
     }
 
     private void Update()
     {
+        if (_alive)
+        {
             if (_healthNow <= 0)
             {
-                GameController.Instance.UnitDeleteList(gameObject);
+                _alive = false;
+                if (_attackCoroutine != null)
+                {
+                    StopCoroutine(_attackCoroutine);
+                }
+
+                _animator.SetInteger("state", 3);
+                _state = 99;
+                gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                GetHPBar().SetActive(false);
+
+                GameController.Instance.UnitDeleteList(gameObject, _animations[0].length + 10);
             }
-            if(_state!=0 && _enemy==null)
+            if (_state != 0 && _enemy == null)
             {
-              _checkSecurityCoroutine = StartCoroutine(CheckSecurity());
+                _checkSecurityCoroutine = StartCoroutine(CheckSecurity());
             }
             switch (_state)
             {
                 case 0:
+
+                    _animator.SetInteger("state", 0);
+
                     _damageAbsorption = 0;
                     if (!_attack)
                     {
                         StopCoroutine(_attackCoroutine);
-                    //StopCoroutine(Attack());
-                    _attack = true;
+                        //StopCoroutine(Attack());
+                        _attack = true;
                     }
-                    if(_checkSecurity)
+                    if (_checkSecurity)
                     {
-                    _checkSecurityCoroutine = StartCoroutine(CheckSecurity());
+                        _checkSecurityCoroutine = StartCoroutine(CheckSecurity());
                     }
                     _attack = true;
                     break;
                 case 1:
+
+                    _animator.SetInteger("state", 1);
+
                     _damageAbsorption = 0;
                     if (_attack)
                     {
-                        _attackCoroutine=StartCoroutine(Attack());
+                        _attackCoroutine = StartCoroutine(Attack());
 
                     }
                     break;
                 case 2:
+
+                    _animator.SetInteger("state", 2);
+
                     _damageAbsorption = GameManager.Instance.UnitManager.SwordsmanDamageAbsorption;
                     if (!_attack)
                     {
@@ -69,13 +93,27 @@ public class Swordsman : Entity
                     //_attack = true;
                     break;
             }
+        }
     }
     private IEnumerator Attack()
     {
+        AnimatorSpeed();
         _attack = false;
-        yield return new WaitForSeconds(_attackSpeed);
+
+        switch (Random.Range(0, 2))
+        {
+            case 0:
+                _animator.SetTrigger("Attack_1");
+                break;
+            case 1:
+                _animator.SetTrigger("Attack_2");
+                break;
+        }
+
+        yield return new WaitForSeconds(1f/_attackSpeed);
         _enemy.ApplyDamage(_damage);
-        _attackCoroutine = StartCoroutine(Attack());
+        _attack = true;
+        //_attackCoroutine = StartCoroutine(Attack());
     }
     private Entity SearchEnemies()
     {
@@ -134,5 +172,10 @@ public class Swordsman : Entity
         CheckEnemy();
         yield return new WaitForSeconds(.5f);
         _checkSecurityCoroutine= StartCoroutine(CheckSecurity());
+    }
+    private void AnimatorSpeed()
+    {
+        _animator.SetFloat("speed Attack_1", _attackSpeed);
+        _animator.SetFloat("speed Attack_2", _attackSpeed);
     }
 }

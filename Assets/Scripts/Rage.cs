@@ -20,7 +20,7 @@ public class Rage : MonoBehaviour
     IEnumerator RageCoroutin(Entity entity)
     {
         float attackSpeedNow = entity.GetAttackSpeed();
-        entity.SetAttackSpeed(entity.GetAttackSpeed() - GameManager.Instance.EnhancementsCardManager.RageAttackSpeed);
+        entity.SetAttackSpeed(entity.GetAttackSpeed() + GameManager.Instance.EnhancementsCardManager.RageAttackSpeed);
         yield return new WaitForSeconds(GameManager.Instance.EnhancementsCardManager.RageDuration);
         entity.SetAttackSpeed(attackSpeedNow);
     }

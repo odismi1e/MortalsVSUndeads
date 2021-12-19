@@ -5,22 +5,10 @@ using UnityEngine;
 public class FireExplosion:MonoBehaviour
 {
     private Entity entityEnemy;
+    [SerializeField] private ParticleSystem _particleSystem;
     private void Start()
     {
-
-        Collider2D[] colliders = Action();
-            foreach(Collider2D a in colliders)
-            {
-                if (a.gameObject.tag == "Enemy")
-                {
-                    entityEnemy = a.gameObject.GetComponent<Entity>();
-                    entityEnemy.SetHealtNow(entityEnemy.GetHealthNow()-GameManager.Instance.SpellsCardManager.FireExplosionDamage);
-                    entityEnemy.HpBar();
-                    StartCoroutine(DOT(entityEnemy));
-                }
-            }
-            Destroy(gameObject, GameManager.Instance.SpellsCardManager.FireExplosionDuration+.1f);
-
+        Invoke("Action", _particleSystem.main.startLifetime.constant);
     }
     private IEnumerator DOT(Entity enemy)
     {
@@ -34,17 +22,27 @@ public class FireExplosion:MonoBehaviour
             }
         }
     }
-    private Collider2D[] Action()
+    private void Action()
     {
-        return Physics2D.OverlapBoxAll(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y),
-         new Vector2((GridController.Instance.WidthGrid / GridController.Instance.VerticalCount) * GameManager.Instance.SpellsCardManager.FireExplosionWidth,
-         (GridController.Instance.HeightGrid / GridController.Instance.HorizontalCount) * GameManager.Instance.SpellsCardManager.FireExplosionHeight), 0); ;
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y),
+         (GridController.Instance.HeightGrid / GridController.Instance.HorizontalCount) * GameManager.Instance.SpellsCardManager.FireExplosionHeight/2f);
+        foreach (Collider2D a in colliders)
+        {
+            if (a.gameObject.tag == "Enemy")
+            {
+                entityEnemy = a.gameObject.GetComponent<Entity>();
+                entityEnemy.SetHealtNow(entityEnemy.GetHealthNow() - GameManager.Instance.SpellsCardManager.FireExplosionDamage);
+                entityEnemy.HpBar();
+                StartCoroutine(DOT(entityEnemy));
+            }
+        }
+        Destroy(gameObject, GameManager.Instance.SpellsCardManager.FireExplosionDuration + .1f);
     }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(new Vector3(gameObject.transform.position.x, gameObject.transform.position.y,0),
-         new Vector3((GridController.Instance.WidthGrid / GridController.Instance.VerticalCount) * GameManager.Instance.SpellsCardManager.FireExplosionWidth,
-         (GridController.Instance.HeightGrid / GridController.Instance.HorizontalCount) * GameManager.Instance.SpellsCardManager.FireExplosionHeight,1));
+        Gizmos.DrawWireSphere(new Vector3(gameObject.transform.position.x, gameObject.transform.position.y,0),
+         (GridController.Instance.HeightGrid / GridController.Instance.HorizontalCount) * GameManager.Instance.SpellsCardManager.FireExplosionHeight/2f);
     }
 }

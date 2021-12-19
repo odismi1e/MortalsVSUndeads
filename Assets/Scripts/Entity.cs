@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Entity : MonoBehaviour
 {
+    [SerializeField] protected Animator _animator;
+    [SerializeField] protected AnimationClip[] _animations;
+
     protected float _healthMax;
     protected float _healthNow;
     protected float _damageAbsorption = 0;
@@ -38,18 +41,22 @@ public class Entity : MonoBehaviour
 
         HpBar();
 
-        if (HPBar != null)
-        {
-            if (_healthNow < _healthMax)
-            {
-                HPBar.SetActive(true);
-            }
-        }
+        //if (HPBar != null)
+        //{
+        //    if (_healthNow < _healthMax)
+        //    {
+        //        HPBar.SetActive(true);
+        //    }
+        //}
     }
     public void HpBar()
     {
         if (Hp != null)
         {
+            if (_healthNow < _healthMax)
+            {
+                HPBar.SetActive(true);
+            }
             if (_healthNow / _healthMax < 0)
             {
                 Hp.localScale = new Vector3(0, 1, 1);
@@ -65,8 +72,11 @@ public class Entity : MonoBehaviour
             else
             {
                 HPBar.SetActive(true);
+            }  
+            if(_healthNow <= 0)
+            {
+                HPBar.SetActive(false);
             }
-            
         }
     }
     public float GetHealthNow()
@@ -80,6 +90,10 @@ public class Entity : MonoBehaviour
     public float GetSpeed()
     {
         return _speed;
+    }
+    public GameObject GetHPBar()
+    {
+        return HPBar;
     }
     public void SetSpeed(float value)
     {

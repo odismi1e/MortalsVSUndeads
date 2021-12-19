@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour
     }
     public List<Entity> Unit;
     public float ScreenScaleFactor;
-    public void UnitDeleteList(GameObject gameObject)
+    public void UnitDeleteList(GameObject gameObject,float duration=0)
     {
         var entity = gameObject.GetComponent<Entity>();
         for(int i=0;i<Unit.Count;i++)
@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
             if(entity==Unit[i])
             {
                 Unit.RemoveAt(i);
-                Destroy(gameObject);
+                Destroy(gameObject,duration);
                 break;
             }
         }

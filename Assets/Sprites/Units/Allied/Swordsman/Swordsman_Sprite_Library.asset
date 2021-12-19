@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: Swordsman_Sprite_Library
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: Shield
+    m_Hash: 423614430
+    m_CategoryList:
+    - m_Name: Idle
+      m_Hash: 2081823275
+      m_Sprite: {fileID: -2422233964692160189, guid: f8e6e2b8e9f0c2940a0df73094582913, type: 3}
+    - m_Name: Defend
+      m_Hash: -1792453736
+      m_Sprite: {fileID: -3181002078231688272, guid: f8e6e2b8e9f0c2940a0df73094582913, type: 3}
+  - m_Name: Sword
+    m_Hash: 1529145355
+    m_CategoryList:
+    - m_Name: Default
+      m_Hash: 753088835
+      m_Sprite: {fileID: -716457494975581334, guid: f8e6e2b8e9f0c2940a0df73094582913, type: 3}

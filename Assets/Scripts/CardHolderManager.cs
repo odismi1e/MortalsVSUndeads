@@ -39,34 +39,34 @@ public class CardHolderManager : MonoBehaviour
         CardManager cardManager = card.GetComponent<CardManager>();
 
         cardManager.CardSO = _cardSO[_ind];
-        cardManager.CardHolder = card;
+        //cardManager.CardHolder = card;
         cardManager._cardHolderPosition = card.transform;
 
         switch(_cardSO[_ind].id)
         {
             case (int)Cards.Crossbowman:
                 card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.UnitManager.CrossbowmanMana.ToString();
-                cardManager.Mana = GameManager.Instance.UnitManager.CrossbowmanMana;
+                cardManager.SetMana(GameManager.Instance.UnitManager.CrossbowmanMana);
                 break;
             case (int)Cards.Swordsman:
                 card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.UnitManager.SwordsmanMana.ToString();
-                cardManager.Mana = GameManager.Instance.UnitManager.SwordsmanMana;
+                cardManager.SetMana( GameManager.Instance.UnitManager.SwordsmanMana);
                 break;
             case (int)Cards.Healing:
                 card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.EnhancementsCardManager.HealCardManaCost.ToString();
-                cardManager.Mana = GameManager.Instance.EnhancementsCardManager.HealCardManaCost;
+                cardManager.SetMana( GameManager.Instance.EnhancementsCardManager.HealCardManaCost);
                 break;
             case (int)Cards.Rage:
                 card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.EnhancementsCardManager.RageCardManaCost.ToString();
-                cardManager.Mana = GameManager.Instance.EnhancementsCardManager.RageCardManaCost;
+                cardManager.SetMana( GameManager.Instance.EnhancementsCardManager.RageCardManaCost);
                 break;
             case (int)Cards.FireExplosion:
                 card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.SpellsCardManager.FireExplosionManaCost.ToString();
-                cardManager.Mana = GameManager.Instance.SpellsCardManager.FireExplosionManaCost;
+                cardManager.SetMana( GameManager.Instance.SpellsCardManager.FireExplosionManaCost);
                 break;
             case (int)Cards.IceBlast:
                 card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.SpellsCardManager.IceBlastManaCost.ToString();
-                cardManager.Mana = GameManager.Instance.SpellsCardManager.IceBlastManaCost;
+                cardManager.SetMana( GameManager.Instance.SpellsCardManager.IceBlastManaCost);
                 break;
         }
 
@@ -77,7 +77,7 @@ public class CardHolderManager : MonoBehaviour
     }
     public bool CheckForDurability(GameObject gameObject)
     {
-        if (gameObject.GetComponent<CardManager>().Mana > ResourceCounter.Instance.Resources)
+        if (gameObject.GetComponent<CardManager>().GetMana() > ResourceCounter.Instance.Resources)
         {
             return false;
         }

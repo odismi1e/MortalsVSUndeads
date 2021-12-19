@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 138513421035503096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.57, y: 0.14, z: 0}
+  m_LocalPosition: {x: 0.57, y: 0.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4225607747656497770}
@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 462906803729857388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.3, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4225607747656497770}
@@ -160,6 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afbbab60245f9e4bbafbbfd3dcc230b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+  _animations: []
   HPBar: {fileID: 6403307356307136420}
   Hp: {fileID: 7778369993374641368}
   waveSpawner: {fileID: 0}
@@ -219,7 +221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6197553545322011794, guid: d76a3bb295c4599408d55d7ac8fa92a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.618
+      value: 0.918
       objectReference: {fileID: 0}
     - target: {fileID: 6197553545322011794, guid: d76a3bb295c4599408d55d7ac8fa92a3, type: 3}
       propertyPath: m_LocalPosition.z

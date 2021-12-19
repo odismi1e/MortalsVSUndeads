@@ -53,7 +53,7 @@ public class Crossbowman : Entity
     private IEnumerator Attack()
     {
         _attack = false;
-        yield return new WaitForSeconds(_attackSpeed);
+        yield return new WaitForSeconds(1f/_attackSpeed);
         Instantiate(_crossbowArrow, _transformCrossbow.position,Quaternion.identity);
         coroutine = StartCoroutine(Attack());
     }

@@ -5,10 +5,9 @@ using UnityEngine;
 public class Enemy : Entity
 {
     private bool _attack = true;
-    private bool _checkSecurity = true;
+    private bool _alive=true;
 
-    private Coroutine _coroutine1;
-    private Coroutine _coroutine2;
+    private Coroutine _attackCoroutine1;
 
     private Entity _unit;
     private int _state;
@@ -22,51 +21,88 @@ public class Enemy : Entity
         _speed = GameManager.Instance.EnemyUnitManager.EnemySpeed;
         _damageAbsorption = GameManager.Instance.EnemyUnitManager.Armor;
 
-        _coroutine2 = StartCoroutine(CheckNearestUnitToAttack());
+        StartCoroutine(CheckNearestUnitToAttack());
+
+        
     }
 
     private void FixedUpdate()
     {
-            if (_healthNow <= 0)
-            {
-                waveSpawner.NumberOfLiveEnemies--;
-                GameController.Instance.Timer.TimerDelta();
-                Destroy(gameObject);
-            }
+        if (_alive)
+        {
+            //if (_healthNow <= 0)
+            //{
+            //    waveSpawner.NumberOfLiveEnemies--;
+            //    GameController.Instance.Timer.TimerDelta();
+            //    GetHPBar().SetActive(false);
+            //    if (_attackCoroutine1 != null)
+            //    {
+            //        StopCoroutine(_attackCoroutine1);
+            //    }
+            //    gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+            //    _alive = false;
+            //    _state = 99;
+            //    _animator.SetInteger("state",3);
+            //    Destroy(gameObject, _animations[0].length + 3);
+            //}
             if (_state != 0 && _unit == null)
             {
-              _coroutine2 = StartCoroutine(CheckNearestUnitToAttack());
+                _state = 0;
             }
             switch (_state)
             {
                 case 0:
+                    _animator.SetInteger("state", 0);
                     if (!_attack)
                     {
-                        StopCoroutine(_coroutine1);
-                    _attack = true;
+                        StopCoroutine(_attackCoroutine1);
+                        _attack = true;
                     }
-                    //_attack = true;
+
                     gameObject.transform.position = new Vector3(gameObject.transform.position.x - Time.fixedDeltaTime * _speed, gameObject.transform.position.y,
                         gameObject.transform.position.z);
                     break;
                 case 1:
                     if (_attack)
                     {
-                        _coroutine1 = StartCoroutine(Attack());
+                        _attackCoroutine1 = StartCoroutine(Attack());
                     }
-                if (!_checkSecurity)
-                {
-                    StopCoroutine(_coroutine2);
-                }
-                break;
+                    break;
             }
+            if (_healthNow <= 0)
+            {
+                waveSpawner.NumberOfLiveEnemies--;
+                GameController.Instance.Timer.TimerDelta();
+                GetHPBar().SetActive(false);
+                if (_attackCoroutine1 != null)
+                {
+                    StopCoroutine(_attackCoroutine1);
+                }
+                gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+                _alive = false;
+                _state = 99;
+                _animator.SetInteger("state", 3);
+                Destroy(gameObject, _animations[0].length + 3);
+            }
+        }
     }
     private IEnumerator Attack()
     {
+        AnimatorSpeed();
         _attack = false;
-        yield return new WaitForSeconds(_attackSpeed);
+        switch (Random.Range(0,2))
+        {
+            case 0:
+                _animator.Play("Attack_1");
+                break;
+            case 1:
+                _animator.Play("Attack_2");
+                break;
+        }
+        _animator.SetInteger("state", 1);
+        yield return new WaitForSeconds(1f/_attackSpeed);
         _unit.ApplyDamage(_damage);
-        _coroutine1 = StartCoroutine(Attack());
+        _attack = true;
     }
     private Entity SearchEnemies()
     {
@@ -116,9 +152,14 @@ public class Enemy : Entity
     }
     private IEnumerator CheckNearestUnitToAttack()
     {
-        _checkSecurity = false;
         CheckUnit();
         yield return new WaitForSeconds(.5f);
-        _coroutine2= StartCoroutine(CheckNearestUnitToAttack());
+        StartCoroutine(CheckNearestUnitToAttack());
+    }
+    private void AnimatorSpeed()
+    {
+        _animator.SetFloat("speed Attack_1", _attackSpeed);
+        _animator.SetFloat("speed Attack_2", _attackSpeed);
+        _animator.SetFloat("speed Walk", _speed);
     }
 }

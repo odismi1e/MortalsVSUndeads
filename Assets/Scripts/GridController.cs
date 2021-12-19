@@ -8,7 +8,7 @@ public class GridController : MonoBehaviour
     [SerializeField] private GameObject _gridTransform;
     [SerializeField] private WaveSpawner _waveSpawner;
     [SerializeField] private GameObject _spawner;
-    [SerializeField] private GameManager _gameManager;
+    //[SerializeField] private GameManager _gameManager;
 
     private float _scaleSpawner;
 
@@ -42,7 +42,7 @@ public class GridController : MonoBehaviour
     private void Start()
     {
         GameController.Instance.ScreenScaleFactor = (float)WidthGrid / (float)_gridTransform.transform.localScale.x;
-        _gameManager.ScreenScaleFactor();
+        GameManager.Instance.ScreenScaleFactor();
         _waveSpawner.SpawnersPosition(GridController.Instance.CentreGrid, GridController.Instance.HorizontalCount, GridController.Instance.HeightGrid,_scaleSpawner* GameController.Instance.ScreenScaleFactor-_scaleSpawner);
     }
 

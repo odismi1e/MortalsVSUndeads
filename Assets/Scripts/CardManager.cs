@@ -31,9 +31,10 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
     private float _y2;
 
     public Card CardSO;
-    public GameObject CardHolder;
+   // public GameObject CardHolder;
 
-    public int Mana;
+    private int _mana;
+
     public GameObject CardGrid;
     public Transform _cardHolderPosition;
 
@@ -53,7 +54,7 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
     }
     private void Start()
     {
-        _y1 = CardHolder.transform.localPosition.y*.75f;
+        _y1 = gameObject.transform.localPosition.y*.75f;
         _y2 = 70;
         StartCoroutine(RefundCard());
     }
@@ -63,7 +64,7 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
         {
             if (MakeCardInvisible)
             {
-                SetCardInvisible(_cardHolderManager.SpawnCards[SelectedCard(CardHolder, false)]);
+                SetCardInvisible(_cardHolderManager.SpawnCards[SelectedCard(gameObject, false)]);
                 MakeCardInvisible = false;
             }
             ReturnTheSelectedCardsToTheDeck();
@@ -98,13 +99,13 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
     {
         if (CheckForDurability())
         {
-            int indexCard = SelectedCard(CardHolder, false);
+            int indexCard = SelectedCard(gameObject, false);
             if (!_isAvailableToBuild)
             {
                 Destroy(_draggingCard);
-                SetCardVisible(_cardHolderManager.SpawnCards[SelectedCard(CardHolder, false)]);
+                SetCardVisible(_cardHolderManager.SpawnCards[SelectedCard(gameObject, false)]);
                 MakeCardInvisible = true;
-                SelectedCard(CardHolder);
+                SelectedCard(gameObject);
             }
             else
             {
@@ -113,10 +114,11 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
                     yGrid * (_heightGrid / _horizontalCount) + (_centreGrid.y - _heightGrid / 2) + (_heightGrid / (_horizontalCount * 2)), 0),
                     Quaternion.identity);
                 _draggingBuilding.transform.position = new Vector3(xGrid * (_widthGrid / _verticalCount) + (_centreGrid.x - _widthGrid / 2) + (_widthGrid / (_verticalCount * 2)), yGrid * (_heightGrid / _horizontalCount) + (_centreGrid.y - _heightGrid / 2) + (_heightGrid / (_horizontalCount * 2)), 0);
-
-                GridController.Instance.Grid[(int)(((_draggingBuilding.transform.position.x - (_centreGrid.x - _widthGrid / 2) + (_widthGrid / _verticalCount * 2))) / (_widthGrid / _verticalCount)) - 2,
-                    (int)(((_draggingBuilding.transform.position.y - (_centreGrid.y - _heightGrid / 2) + (_heightGrid / _horizontalCount * 2))) / (_heightGrid / _horizontalCount)) - 2] = _draggingBuilding;
-                
+                if (CardSO.Unit)
+                {
+                    GridController.Instance.Grid[(int)(((_draggingBuilding.transform.position.x - (_centreGrid.x - _widthGrid / 2) + (_widthGrid / _verticalCount * 2))) / (_widthGrid / _verticalCount)) - 2,
+                        (int)(((_draggingBuilding.transform.position.y - (_centreGrid.y - _heightGrid / 2) + (_heightGrid / _horizontalCount * 2))) / (_heightGrid / _horizontalCount)) - 2] = _draggingBuilding;
+                }
 
                 _cardHolderManager.SpawnCards[indexCard] = null;
 
@@ -130,9 +132,9 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
 
                 GridController.Instance._cardHolderManager.CreateCard(indexCard);
 
-                ResourceCounter.Instance.WasteOfResources(Mana);
+                ResourceCounter.Instance.WasteOfResources(_mana);
 
-                Destroy(CardHolder);
+                Destroy(gameObject);
                 Destroy(_draggingCard);
 
             }
@@ -191,23 +193,31 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
     private void SetColor(bool isAvailableToBuild)
     {
         if (isAvailableToBuild)
-            _draggingCard.transform.GetChild(0).gameObject.GetComponent<Image>().color =new Color(0.1f,1,0,.2f);
-        else
+        {
+            _draggingCard.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(0.1f, 1, 0, .2f);
+        }
+        else if(CardSO.Unit)
+        {
             _draggingCard.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(1, 0, 0, .2f);
+        }
+        else
+        {
+            _draggingCard.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(0.1f, 1, 0, .2f);
+        }           
     }
     private IEnumerator RefundCard()
     {
-        if(_cardHolderManager.CheckForDurability(CardHolder) != true)
+        if(_cardHolderManager.CheckForDurability(gameObject) != true)
         {
-            CardHolder.transform.localPosition = new Vector3(CardHolder.transform.localPosition.x,
-             _y1,CardHolder.transform.localPosition.z);
+            gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x,
+             _y1, gameObject.transform.localPosition.z);
         }
         yield return new WaitForSeconds(1);
         StartCoroutine(RefundCard());
     }
     public bool CheckForDurability()
     {
-        if (Mana > ResourceCounter.Instance.Resources)
+        if (_mana > ResourceCounter.Instance.Resources)
         {
             return false;
         }
@@ -219,7 +229,7 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
     private void CreationCard(GameObject gameObject)
     {
         gameObject.GetComponentInChildren<Image>().sprite = CardSO.Icon;
-        gameObject.GetComponentInChildren<TMP_Text>().text = Mana.ToString();
+        gameObject.GetComponentInChildren<TMP_Text>().text = _mana.ToString();
 
     }
     private void SetCardInvisible(GameObject card)
@@ -293,10 +303,19 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
     }
     private void CheckingTheGridForEmployment()
     {
-        if (_isAvailableToBuild && IsPlaceTaken((int)(((_draggingCard.transform.position.x - (_centreGrid.x - _widthGrid / 2) + (_widthGrid / _verticalCount * 2))) / (_widthGrid / _verticalCount)) - 2,
+        if ( CardSO.Unit && _isAvailableToBuild && IsPlaceTaken((int)(((_draggingCard.transform.position.x - (_centreGrid.x - _widthGrid / 2) + (_widthGrid / _verticalCount * 2))) / (_widthGrid / _verticalCount)) - 2,
             (int)(((_draggingCard.transform.position.y - (_centreGrid.y - _heightGrid / 2) + (_heightGrid / _horizontalCount * 2))) / (_heightGrid / _horizontalCount)) - 2))
         {
             _isAvailableToBuild = false;
         }
     }
+    public void SetMana(int mana)
+    {
+        _mana = mana;
+    }
+    public int GetMana()
+    {
+        return _mana;
+    }
 }
+ 
