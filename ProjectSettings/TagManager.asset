@@ -46,3 +46,12 @@ TagManager:
   - name: Enemy
     uniqueID: 619861745
     locked: 0
+  - name: Ally
+    uniqueID: 2085674455
+    locked: 0
+  - name: Card
+    uniqueID: 724786605
+    locked: 0
+  - name: UI
+    uniqueID: 804537639
+    locked: 0

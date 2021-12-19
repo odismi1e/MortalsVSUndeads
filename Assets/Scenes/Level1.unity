@@ -175,7 +175,7 @@ MonoBehaviour:
     SwordsmanHealth: 350
     SwordsmanDamage: 3
     SwordsmanAttackSpeed: 1
-    SwordsmanAttackDistance: 2
+    SwordsmanAttackDistance: 1.5
     SwordsmanDamageAbsorption: 5
     SwordsmanMana: 30
     CrossbowmanHealth: 20
@@ -325,8 +325,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.47, y: 0.000076294}
-  m_SizeDelta: {x: 125.61, y: 130}
+  m_AnchoredPosition: {x: 3.2, y: 0.000076294}
+  m_SizeDelta: {x: 131.71, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &408250833
 MonoBehaviour:
@@ -348,7 +348,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 99
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -375,12 +375,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 106.15
   m_fontSizeBase: 73.85
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMin: 24
+  m_fontSizeMax: 128
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -411,7 +411,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 15.414093, w: 0}
+  m_margin: {x: -2.622261, y: 6.118278, z: 4.052311, w: 5.2443233}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -540,7 +540,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4924c43e9a058ea4892ebcb5cdd8e197, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 82205dd0a9e631348a54bbce870f0a9d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -671,7 +671,6 @@ GameObject:
   - component: {fileID: 584639728}
   - component: {fileID: 584639730}
   - component: {fileID: 584639729}
-  - component: {fileID: 584639731}
   m_Layer: 5
   m_Name: In game field
   m_TagString: Untagged
@@ -736,17 +735,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584639727}
   m_CullTransparentMesh: 1
---- !u!210 &584639731
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584639727}
-  m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
 --- !u!1 &640312575
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,7 +747,6 @@ GameObject:
   - component: {fileID: 640312578}
   - component: {fileID: 640312577}
   - component: {fileID: 640312579}
-  - component: {fileID: 640312580}
   m_Layer: 5
   m_Name: Cards Bar
   m_TagString: Untagged
@@ -848,17 +835,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c8426908c95433546ba944731f4be6ad, type: 2}
   - {fileID: 11400000, guid: 61522c5c9845a6b439c39dbea87381c9, type: 2}
   SpawnCards: []
---- !u!210 &640312580
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 640312575}
-  m_Enabled: 1
-  m_SortingLayerID: 619861745
-  m_SortingLayer: 1
-  m_SortingOrder: 0
 --- !u!1 &790091956
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,7 +1283,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6ac93a23cb06dc04f98087c753cb7a8c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ad0966fed359c764699741c7f87a4bd0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1493,7 +1469,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 751e102fa4fbd9047bddb95a54e5a271, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 934e144f4195ca74db0fd319ccacc72e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1655,7 +1631,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 87b6d33492d0abb40ae07a13419c8a9b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc15640d3ed8f2f4c9c5847a1c1083c4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

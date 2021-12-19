@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d87df6d111ee304f84b26873a6bc9ab, type: 3}
   m_Name: Rage
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: c391e90d34c8e9d459a2663bdfeeed4c, type: 3}
+  Unit: 0
+  Icon: {fileID: 21300000, guid: b6cb058e09806814d85d13ed1f5e7190, type: 3}
   Prefab: {fileID: 1175757406871287807, guid: 4fab3e733412b4941b71357f4c62ef9e, type: 3}
   id: 3

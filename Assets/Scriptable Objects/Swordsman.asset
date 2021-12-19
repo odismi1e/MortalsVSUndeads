@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Swordsman
   m_EditorClassIdentifier: 
   Unit: 1
-  Icon: {fileID: 21300000, guid: 5fe82401cd7854845aa3f2ceaaeb88a2, type: 3}
+  Icon: {fileID: 21300000, guid: a1c6b280c03770c4e9c34839c864f8da, type: 3}
   Prefab: {fileID: 4165849440082207268, guid: 1599a7cbf36288549aea6a0e504eaca6, type: 3}
   id: 0

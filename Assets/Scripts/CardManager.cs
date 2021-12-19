@@ -229,7 +229,7 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
     private void CreationCard(GameObject gameObject)
     {
         gameObject.GetComponentInChildren<Image>().sprite = CardSO.Icon;
-        gameObject.GetComponentInChildren<TMP_Text>().text = _mana.ToString();
+        //gameObject.GetComponentInChildren<TMP_Text>().text = _mana.ToString();
 
     }
     private void SetCardInvisible(GameObject card)

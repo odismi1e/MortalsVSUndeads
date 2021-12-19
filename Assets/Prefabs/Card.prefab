@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 80.5, y: 128.7}
+  m_AnchoredPosition: {x: 80.5, y: -999}
   m_SizeDelta: {x: 49.85, y: 43.28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2199354616486156035
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -146,7 +146,6 @@ GameObject:
   - component: {fileID: 8557683814635287967}
   - component: {fileID: 8578026127138169057}
   - component: {fileID: 3789698831257012653}
-  - component: {fileID: 966250513070951361}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -225,18 +224,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardSO: {fileID: 0}
-  CardHolder: {fileID: 0}
-  Mana: 0
   CardGrid: {fileID: 8503601138085456652, guid: bf7e3600c4e3e994ea08882a62d92377, type: 3}
   _cardHolderPosition: {fileID: 0}
---- !u!210 &966250513070951361
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8113437957163111186}
-  m_Enabled: 1
-  m_SortingLayerID: 619861745
-  m_SortingLayer: 1
-  m_SortingOrder: 0

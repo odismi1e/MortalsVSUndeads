@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d87df6d111ee304f84b26873a6bc9ab, type: 3}
   m_Name: IceBlast
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 7c7b7de52b73c8342b754c3745d3c3ad, type: 3}
+  Unit: 0
+  Icon: {fileID: 21300000, guid: 535fa415c66a49b41963ff0470fb34fb, type: 3}
   Prefab: {fileID: 8807414575768658693, guid: 6f9ceca21ea11eb40b2bc16ceb5ee639, type: 3}
   id: 5
