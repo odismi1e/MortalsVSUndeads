@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2501995866323676484}
   - component: {fileID: 2483183626324762177}
   m_Layer: 0
-  m_Name: FieryExplosion
+  m_Name: Fire Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,6 +52,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2501995866323676484}
     m_Modifications:
+    - target: {fileID: 2625913585281727614, guid: 5a8ac71635bca5c4d89fbd589bfc2588, type: 3}
+      propertyPath: Repeating
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2649601112775983628, guid: 5a8ac71635bca5c4d89fbd589bfc2588, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2730133474295352734, guid: 5a8ac71635bca5c4d89fbd589bfc2588, type: 3}
       propertyPath: m_Name
       value: F

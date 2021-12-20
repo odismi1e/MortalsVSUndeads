@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 87802567}
   - component: {fileID: 87802568}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,50 +166,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef9601df2d31564b8875e79ccc608b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Seconds: 1
+  Seconds: 4
   Mana: 1
-  StartMana: 100
+  StartMana: 1
   NumberCardsHand: 6
-  MinAttackSpeed: 0
+  MinAttackSpeed: 0.25
   UnitManager:
-    SwordsmanHealth: 350
-    SwordsmanDamage: 3
+    SwordsmanHealth: 10
+    SwordsmanDamage: 2
     SwordsmanAttackSpeed: 1
-    SwordsmanAttackDistance: 1.5
+    SwordsmanAttackDistance: 1
     SwordsmanDamageAbsorption: 5
-    SwordsmanMana: 30
-    CrossbowmanHealth: 20
-    CrossbowArrowDamage: 10
-    CrossbowmanAttackSpeed: 1
-    CrossbowArrowSpeed: 3
-    CrossbowmanIgnoringArmor: 2
-    CrossbowmanMana: 15
+    SwordsmanMana: 1
+    CrossbowmanHealth: 5
+    CrossbowArrowDamage: 5
+    CrossbowmanAttackSpeed: 0.33
+    CrossbowArrowSpeed: 9
+    CrossbowmanIgnoringArmor: 5
+    CrossbowmanMana: 1
   EnemyUnitManager:
-    EnemyHealth: 25
-    EnemyDamage: 4
+    EnemyHealth: 15
+    EnemyDamage: 1
     EnemyAttackSpeed: 1
     EnemyAttackDistance: 1
-    EnemySpeed: 2
-    Armor: 2
+    EnemySpeed: 1.5
+    Armor: 0
   EnhancementsCardManager:
     HealQuantity: 10
-    HealCardManaCost: 4
-    RageAttackSpeed: 1
+    HealCardManaCost: 3
+    RageAttackSpeed: 3
     RageDuration: 5
     RageCardManaCost: 2
   SpellsCardManager:
     FireExplosionWidth: 3
     FireExplosionHeight: 3
-    FireExplosionDamage: 20
+    FireExplosionDamage: 11
     DOTFireExplosionDamage: 1
     FireExplosionDuration: 5
     FireExplosionManaCost: 5
     IceBlastWidth: 3
     IceBlastHeight: 3
-    IceBlastDamage: 20
-    IceBlastSpeedDebuff: 70
+    IceBlastDamage: 5
+    IceBlastSpeedDebuff: 50
     IceBlastDuration: 5
-    IceBlastManaCost: 77
+    IceBlastManaCost: 3
 --- !u!1 &193004205
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 193004207}
   - component: {fileID: 193004206}
   m_Layer: 0
-  m_Name: WaveController
+  m_Name: Wave Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,6 +244,57 @@ MonoBehaviour:
     - _enemy: {fileID: 5462176265962569949, guid: b1e7f29ae422f0744a9c7da037721f08, type: 3}
       _neededSpawner: {fileID: 947791390}
       _spawnDelay: 3
+    - _enemy: {fileID: 5462176265962569949, guid: b1e7f29ae422f0744a9c7da037721f08, type: 3}
+      _neededSpawner: {fileID: 514040471}
+      _spawnDelay: 5
+  - _waveSettings:
+    - _enemy: {fileID: 5462176265962569949, guid: b1e7f29ae422f0744a9c7da037721f08, type: 3}
+      _neededSpawner: {fileID: 1557802870}
+      _spawnDelay: 3
+    - _enemy: {fileID: 5462176265962569949, guid: b1e7f29ae422f0744a9c7da037721f08, type: 3}
+      _neededSpawner: {fileID: 527155869}
+      _spawnDelay: 4
+  - _waveSettings:
+    - _enemy: {fileID: 5462176265962569949, guid: b1e7f29ae422f0744a9c7da037721f08, type: 3}
+      _neededSpawner: {fileID: 334521694}
+      _spawnDelay: 3
+    - _enemy: {fileID: 5462176265962569949, guid: b1e7f29ae422f0744a9c7da037721f08, type: 3}
+      _neededSpawner: {fileID: 334521694}
+      _spawnDelay: 3.5
+    - _enemy: {fileID: 5462176265962569949, guid: b1e7f29ae422f0744a9c7da037721f08, type: 3}
+      _neededSpawner: {fileID: 947791390}
+      _spawnDelay: 6
+    - _enemy: {fileID: 5462176265962569949, guid: b1e7f29ae422f0744a9c7da037721f08, type: 3}
+      _neededSpawner: {fileID: 514040471}
+      _spawnDelay: 6.5
+    - _enemy: {fileID: 5462176265962569949, guid: b1e7f29ae422f0744a9c7da037721f08, type: 3}
+      _neededSpawner: {fileID: 1557802870}
+      _spawnDelay: 20
+    - _enemy: {fileID: 5462176265962569949, guid: b1e7f29ae422f0744a9c7da037721f08, type: 3}
+      _neededSpawner: {fileID: 1557802870}
+      _spawnDelay: 20.5
+    - _enemy: {fileID: 5462176265962569949, guid: b1e7f29ae422f0744a9c7da037721f08, type: 3}
+      _neededSpawner: {fileID: 527155869}
+      _spawnDelay: 20
+    - _enemy: {fileID: 5462176265962569949, guid: b1e7f29ae422f0744a9c7da037721f08, type: 3}
+      _neededSpawner: {fileID: 527155869}
+      _spawnDelay: 20.5
+  - _waveSettings:
+    - _enemy: {fileID: 5462176265962569949, guid: b1e7f29ae422f0744a9c7da037721f08, type: 3}
+      _neededSpawner: {fileID: 1557802870}
+      _spawnDelay: 3
+    - _enemy: {fileID: 5462176265962569949, guid: b1e7f29ae422f0744a9c7da037721f08, type: 3}
+      _neededSpawner: {fileID: 1557802870}
+      _spawnDelay: 4
+    - _enemy: {fileID: 5462176265962569949, guid: b1e7f29ae422f0744a9c7da037721f08, type: 3}
+      _neededSpawner: {fileID: 1557802870}
+      _spawnDelay: 5
+    - _enemy: {fileID: 5462176265962569949, guid: b1e7f29ae422f0744a9c7da037721f08, type: 3}
+      _neededSpawner: {fileID: 1557802870}
+      _spawnDelay: 6
+    - _enemy: {fileID: 5462176265962569949, guid: b1e7f29ae422f0744a9c7da037721f08, type: 3}
+      _neededSpawner: {fileID: 1557802870}
+      _spawnDelay: 7
   _spawners: {fileID: 937346542}
   NumberOfLiveEnemies: 0
   Timer: {fileID: 1695710401}
@@ -827,13 +878,15 @@ MonoBehaviour:
   _cardHolderPosition: {fileID: 953391346}
   _card: {fileID: 8113437957163111186, guid: 9827c22dd73383a4081c365766ba62db, type: 3}
   _cardSO:
-  - {fileID: 11400000, guid: 0a54e084cdb0e164091c7d3571a5f87c, type: 2}
-  - {fileID: 11400000, guid: e8197f88ba24a7443a59d31f82544228, type: 2}
-  - {fileID: 11400000, guid: ecac1a26d5213704bb6e2bc4c71b3f0d, type: 2}
-  - {fileID: 11400000, guid: e8197f88ba24a7443a59d31f82544228, type: 2}
-  - {fileID: 11400000, guid: 61522c5c9845a6b439c39dbea87381c9, type: 2}
   - {fileID: 11400000, guid: c8426908c95433546ba944731f4be6ad, type: 2}
+  - {fileID: 11400000, guid: c8426908c95433546ba944731f4be6ad, type: 2}
+  - {fileID: 11400000, guid: e8197f88ba24a7443a59d31f82544228, type: 2}
+  - {fileID: 11400000, guid: e8197f88ba24a7443a59d31f82544228, type: 2}
+  - {fileID: 11400000, guid: c8426908c95433546ba944731f4be6ad, type: 2}
+  - {fileID: 11400000, guid: e2dbf1fd87a727c45980c00d85e47e45, type: 2}
+  - {fileID: 11400000, guid: 0a54e084cdb0e164091c7d3571a5f87c, type: 2}
   - {fileID: 11400000, guid: 61522c5c9845a6b439c39dbea87381c9, type: 2}
+  - {fileID: 11400000, guid: ecac1a26d5213704bb6e2bc4c71b3f0d, type: 2}
   SpawnCards: []
 --- !u!1 &790091956
 GameObject:
@@ -1139,7 +1192,7 @@ GameObject:
   - component: {fileID: 1129687725}
   - component: {fileID: 1129687724}
   m_Layer: 0
-  m_Name: GridController
+  m_Name: Grid Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1833,7 +1886,7 @@ GameObject:
   - component: {fileID: 2064404757}
   - component: {fileID: 2064404758}
   m_Layer: 0
-  m_Name: GameController
+  m_Name: Game Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
