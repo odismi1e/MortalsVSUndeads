@@ -1,9 +1,20 @@
-    enum Cards
-    {
-        Swordsman = 0,
-        Crossbowman = 1,
-        Healing=2,
-        Rage=3,
-        FireExplosion=4,
-        IceBlast=5
-    }
+public enum Cards
+{
+    Swordsman,
+    Crossbowman,
+    Healing,
+    Rage,
+    FireExplosion,
+    IceBlast
+}
+public enum ScreenName 
+{ 
+    Start,
+    Castle, 
+    Shop, 
+    Deck, 
+}
+public enum WindowName
+{
+    Options
+}
