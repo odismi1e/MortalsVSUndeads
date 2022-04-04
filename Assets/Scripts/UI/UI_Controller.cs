@@ -13,7 +13,7 @@ public class UI_Controller : MonoBehaviour
     private List<GameObject> _instantiatedScreens = new List<GameObject>();
     private List<GameObject> _instantiatedWindows = new List<GameObject>();
 
-    private GameObject _currentScreen;
+    [SerializeField] private GameObject _currentScreen;
     private GameObject _currentWindow;
     private string _cloneString = "(Clone)";
 
@@ -25,7 +25,7 @@ public class UI_Controller : MonoBehaviour
         _screens = Resources.LoadAll<UI_Screen>("Screens");
         _windows = Resources.LoadAll<UI_Window>("Windows");
         InstantiateAllScreensAndWindows();
-        SetScreenActive(ScreenName.Start);
+        //SetScreenActive(ScreenName.Start);
     }
     public void SetScreenActive(ScreenName name)
     {

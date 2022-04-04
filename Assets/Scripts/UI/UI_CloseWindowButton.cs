@@ -8,17 +8,18 @@ public class UI_CloseWindowButton : MonoBehaviour
     [SerializeField] private WindowName windowName;
     private Button _closingButton;
 
-    void Start()
+    void Awake()
     {
         _closingButton = this.GetComponent<Button>();
+        
     }
     void OnEnable()
     {
-        _closingButton.onClick.AddListener(OnClickEvent);
+        if (_closingButton) { _closingButton.onClick.AddListener(OnClickEvent); }
     }
     void OnDisable()
     {
-        _closingButton.onClick.RemoveListener(OnClickEvent);
+        if (_closingButton) { _closingButton.onClick.RemoveListener(OnClickEvent); }
     }
     private void OnClickEvent()
     {

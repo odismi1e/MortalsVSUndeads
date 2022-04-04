@@ -13,8 +13,10 @@ public enum ScreenName
     Castle, 
     Shop, 
     Deck, 
+    LevelsMap
 }
 public enum WindowName
 {
-    Options
+    Options,
+    Shop
 }

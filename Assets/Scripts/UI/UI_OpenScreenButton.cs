@@ -8,17 +8,17 @@ public class UI_OpenScreenButton : MonoBehaviour
     [SerializeField] private ScreenName screenName;
     private Button _openingButton;
 
-    void Start()
+    void Awake()
     {
         _openingButton = this.GetComponent<Button>();
     }
     void OnEnable()
     {
-        _openingButton.onClick.AddListener(OnClickEvent);
+        if (_openingButton) { _openingButton.onClick.AddListener(OnClickEvent); }
     }
     void OnDisable()
     {
-        _openingButton.onClick.RemoveListener(OnClickEvent);
+        if (_openingButton) { _openingButton.onClick.RemoveListener(OnClickEvent); }
     }
     private void OnClickEvent()
     {
