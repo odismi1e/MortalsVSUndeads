@@ -20,9 +20,9 @@ public class CardHolderManager : MonoBehaviour
     void Start()
     {
         _cardsAmmount = _cardSO.Length;
-        SpawnCards = new GameObject[GameManager.Instance.NumberCardsHand];
+        SpawnCards = new GameObject[GameManager.Instance.OtherFields.NumberCardsHand];
 
-        for (int i = 0; i < GameManager.Instance.NumberCardsHand; i++)
+        for (int i = 0; i < GameManager.Instance.OtherFields.NumberCardsHand; i++)
         {
             CreateCard(i);
         }
@@ -45,28 +45,28 @@ public class CardHolderManager : MonoBehaviour
         switch(_cardSO[_ind].id)
         {
             case (int)Cards.Crossbowman:
-                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.UnitManager.CrossbowmanMana.ToString();
-                cardManager.SetMana(GameManager.Instance.UnitManager.CrossbowmanMana);
+                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.Unit.CrossbowmanMana.ToString();
+                cardManager.SetMana(GameManager.Instance.Unit.CrossbowmanMana);
                 break;
             case (int)Cards.Swordsman:
-                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.UnitManager.SwordsmanMana.ToString();
-                cardManager.SetMana( GameManager.Instance.UnitManager.SwordsmanMana);
+                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.Unit.SwordsmanMana.ToString();
+                cardManager.SetMana( GameManager.Instance.Unit.SwordsmanMana);
                 break;
             case (int)Cards.Healing:
-                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.EnhancementsCardManager.HealCardManaCost.ToString();
-                cardManager.SetMana( GameManager.Instance.EnhancementsCardManager.HealCardManaCost);
+                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.EnhancementsCard.HealCardManaCost.ToString();
+                cardManager.SetMana( GameManager.Instance.EnhancementsCard.HealCardManaCost);
                 break;
             case (int)Cards.Rage:
-                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.EnhancementsCardManager.RageCardManaCost.ToString();
-                cardManager.SetMana( GameManager.Instance.EnhancementsCardManager.RageCardManaCost);
+                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.EnhancementsCard.RageCardManaCost.ToString();
+                cardManager.SetMana( GameManager.Instance.EnhancementsCard.RageCardManaCost);
                 break;
             case (int)Cards.FireExplosion:
-                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.SpellsCardManager.FireExplosionManaCost.ToString();
-                cardManager.SetMana( GameManager.Instance.SpellsCardManager.FireExplosionManaCost);
+                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.SpellsCard.FireExplosionManaCost.ToString();
+                cardManager.SetMana( GameManager.Instance.SpellsCard.FireExplosionManaCost);
                 break;
             case (int)Cards.IceBlast:
-                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.SpellsCardManager.IceBlastManaCost.ToString();
-                cardManager.SetMana( GameManager.Instance.SpellsCardManager.IceBlastManaCost);
+                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.SpellsCard.IceBlastManaCost.ToString();
+                cardManager.SetMana( GameManager.Instance.SpellsCard.IceBlastManaCost);
                 break;
         }
 
@@ -88,7 +88,7 @@ public class CardHolderManager : MonoBehaviour
     }
     private IEnumerator CardsCheckForDurability()
     {
-        for (int i = 0; i < GameManager.Instance.NumberCardsHand; i++)
+        for (int i = 0; i < GameManager.Instance.OtherFields.NumberCardsHand; i++)
         {
             if (SpawnCards[i] != null)
             {

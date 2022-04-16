@@ -14,12 +14,12 @@ public class Enemy : Entity
 
     private void Start()
     {
-        _healthMax = GameManager.Instance.EnemyUnitManager.EnemyHealth;
+        _healthMax = GameManager.Instance.EnemyUnit.EnemyHealth;
         _healthNow = _healthMax;
-        _damage = GameManager.Instance.EnemyUnitManager.EnemyDamage;
-        _attackSpeed = GameManager.Instance.EnemyUnitManager.EnemyAttackSpeed;
-        _speed = GameManager.Instance.EnemyUnitManager.EnemySpeed;
-        _damageAbsorption = GameManager.Instance.EnemyUnitManager.Armor;
+        _damage = GameManager.Instance.EnemyUnit.EnemyDamage;
+        _attackSpeed = GameManager.Instance.EnemyUnit.EnemyAttackSpeed;
+        _speed = GameManager.Instance.EnemyUnit.EnemySpeed;
+        _damageAbsorption = GameManager.Instance.EnemyUnit.Armor;
 
         StartCoroutine(CheckNearestUnitToAttack());
 
@@ -78,7 +78,7 @@ public class Enemy : Entity
                 {
                     StopCoroutine(_attackCoroutine1);
                 }
-                gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+                gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 _alive = false;
                 _state = 99;
                 _animator.SetInteger("state", 3);
@@ -107,8 +107,8 @@ public class Enemy : Entity
     private Entity SearchEnemies()
     {
         Collider2D[] colliders = Physics2D.OverlapBoxAll
-            (new Vector2(gameObject.transform.position.x - (GameManager.Instance.EnemyUnitManager.EnemyAttackDistance  / 2), gameObject.transform.position.y),
-            new Vector2(GameManager.Instance.EnemyUnitManager.EnemyAttackDistance , 0.1f), 0);
+            (new Vector2(gameObject.transform.position.x - (GameManager.Instance.OtherFields.MeleeAtackRange / 2), gameObject.transform.position.y),
+            new Vector2(GameManager.Instance.OtherFields.MeleeAtackRange, 0.1f), 0);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject.tag == "Unit")
@@ -122,8 +122,8 @@ public class Enemy : Entity
     {
         int quantityEnemies = 0;
         Collider2D[] colliders = Physics2D.OverlapBoxAll
-           (new Vector2(gameObject.transform.position.x - (GameManager.Instance.EnemyUnitManager.EnemyAttackDistance  / 2), gameObject.transform.position.y),
-           new Vector2(GameManager.Instance.EnemyUnitManager.EnemyAttackDistance , 0.1f), 0);
+           (new Vector2(gameObject.transform.position.x - (GameManager.Instance.OtherFields.MeleeAtackRange / 2), gameObject.transform.position.y),
+           new Vector2(GameManager.Instance.OtherFields.MeleeAtackRange, 0.1f), 0);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject.tag == "Unit")
@@ -153,7 +153,7 @@ public class Enemy : Entity
     private IEnumerator CheckNearestUnitToAttack()
     {
         CheckUnit();
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.25f);
         StartCoroutine(CheckNearestUnitToAttack());
     }
     private void AnimatorSpeed()

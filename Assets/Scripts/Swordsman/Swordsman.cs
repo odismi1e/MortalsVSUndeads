@@ -16,10 +16,10 @@ public class Swordsman : Entity
 
     private void Start()
     {
-        _healthMax = GameManager.Instance.UnitManager.SwordsmanHealth;
+        _healthMax = GameManager.Instance.Unit.SwordsmanHealth;
         _healthNow = _healthMax;
-        _damage = GameManager.Instance.UnitManager.SwordsmanDamage;
-        _attackSpeed = GameManager.Instance.UnitManager.SwordsmanAttackSpeed;
+        _damage = GameManager.Instance.Unit.SwordsmanDamage;
+        _attackSpeed = GameManager.Instance.Unit.SwordsmanAttackSpeed;
 
         GameController.Instance.Unit.Add(gameObject.GetComponent<Entity>());
 
@@ -84,7 +84,7 @@ public class Swordsman : Entity
 
                     _animator.SetInteger("state", 2);
 
-                    _damageAbsorption = GameManager.Instance.UnitManager.SwordsmanDamageAbsorption;
+                    _damageAbsorption = GameManager.Instance.Unit.SwordsmanDamageAbsorption;
                     if (!_attack)
                     {
                         StopCoroutine(_attackCoroutine);
@@ -118,8 +118,8 @@ public class Swordsman : Entity
     private Entity SearchEnemies()
     {
         Collider2D[] colliders =Physics2D.OverlapBoxAll
-            (new Vector2(gameObject.transform.position.x + (GameManager.Instance.UnitManager.SwordsmanAttackDistance / 2),gameObject.transform.position.y) ,
-            new Vector2(GameManager.Instance.UnitManager.SwordsmanAttackDistance, 0.1f),0);
+            (new Vector2(gameObject.transform.position.x + (GameManager.Instance.OtherFields.MeleeAtackRange / 2),gameObject.transform.position.y) ,
+            new Vector2(GameManager.Instance.OtherFields.MeleeAtackRange, 0.1f),0);
         for(int i=0;i<colliders.Length;i++)
         {
             if(colliders[i].gameObject.tag=="Enemy")
@@ -133,8 +133,8 @@ public class Swordsman : Entity
     {
         int quantityEnemies = 0;
         Collider2D[] colliders = Physics2D.OverlapBoxAll
-            (new Vector2(gameObject.transform.position.x + (GameManager.Instance.UnitManager.SwordsmanAttackDistance / 2), gameObject.transform.position.y),
-            new Vector2(GameManager.Instance.UnitManager.SwordsmanAttackDistance, 0.1f), 0);
+            (new Vector2(gameObject.transform.position.x + (GameManager.Instance.OtherFields.MeleeAtackRange / 2), gameObject.transform.position.y),
+            new Vector2(GameManager.Instance.OtherFields.MeleeAtackRange, 0.1f), 0);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject.tag == "Enemy")
@@ -170,7 +170,7 @@ public class Swordsman : Entity
     {
         _checkSecurity = false;
         CheckEnemy();
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.1f);
         _checkSecurityCoroutine= StartCoroutine(CheckSecurity());
     }
     private void AnimatorSpeed()

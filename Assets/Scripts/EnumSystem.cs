@@ -12,6 +12,12 @@ public enum Scenes
     Main_Menu,
     Level1
 }
+public enum Language
+{
+    English,
+    Russian,
+    German
+}
 public enum ScreenName 
 { 
     Start,
@@ -38,4 +44,19 @@ public enum WindowName
     Levels_Start,
 
     Current
+}
+
+public enum LocalizationKey
+{
+    Play
+}
+public enum DataFieldKey
+{
+    ManaRegenerationRate,
+    ManaPerTick,
+    StartMana
+}
+public enum DataPrimaryKey
+{
+    Mana
 }

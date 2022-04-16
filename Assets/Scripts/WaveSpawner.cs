@@ -6,6 +6,7 @@ public class WaveSpawner : MonoBehaviour
 {
     [SerializeField] private Waves[] _waves;
     [SerializeField] private GameObject _spawners;
+    [SerializeField] private float _spawnDistance;
 
     private int _currentEnemyIndex;
     private int _currentWaveIndex;
@@ -102,10 +103,10 @@ public class WaveSpawner : MonoBehaviour
     }
     public void SpawnersPosition(Vector2 vector2, int col, float height, float scale = 0)
     {
-        _spawners.transform.position = new Vector3(37 + scale / 2, vector2.y, 0);
+        _spawners.transform.position = new Vector3(_spawnDistance + scale / 2, vector2.y, 0);
         for (int i = 0; i < 6; i++)
         {
-            _spawners.transform.GetChild(i).position = new Vector3(37 + scale / 2, (vector2.y - height / 2) + ((height * (2 * i + 1)) / (col * 2)), 0);
+            _spawners.transform.GetChild(i).position = new Vector3(_spawnDistance + scale / 2, (vector2.y - height / 2) + ((height * (2 * i + 1)) / (col * 2)), 0);
         }
     }
     public Waves[] GetWaves()

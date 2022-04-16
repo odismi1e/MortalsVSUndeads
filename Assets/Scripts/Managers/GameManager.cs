@@ -2,11 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class GameManager : MonoBehaviour
 {
-    static public GameManager Instance;
-    private void Awake()
+    private static GameManager _instance;
+    public static GameManager Instance { get => _instance; private set => _instance = value; }
+
+    public ManaManager ManaSystem;
+    public OtherFieldsManager OtherFields;
+    public UnitManager Unit;
+    public EnemyUnitManager EnemyUnit;
+    public EnhancementsCardManager EnhancementsCard;
+    public SpellsCardManager SpellsCard;
+    void Awake()
+    {
+        InitalizeSingleton();        
+    }
+    void Start()
+    {
+        InitializeGameManagerFields();
+    }
+    private void InitializeGameManagerFields()
+    {
+
+    }
+
+    public void ScreenScaleFactor()
+    {
+        Unit.SwordsmanAttackDistance *= GameController.Instance.ScreenScaleFactor;
+        Unit.CrossbowArrowSpeed *= GameController.Instance.ScreenScaleFactor;
+
+        EnemyUnit.EnemyAttackDistance *= GameController.Instance.ScreenScaleFactor;
+        EnemyUnit.EnemySpeed *= GameController.Instance.ScreenScaleFactor;
+    }
+    private void InitalizeSingleton()
     {
         if (Instance != null && Instance != this)
         {
@@ -16,36 +46,24 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+        DontDestroyOnLoad(this);
     }
-    [Header("Mana recovery rate.")]
-    public float Seconds;
-    [Header("The amount of mana received.")]
-    public int Mana;
-    [Header("Initial amount of mana.")]
-    public int StartMana;
-    [Header("The number of cards in the hand.")]
-    public int NumberCardsHand;
-    [Header("Minimum attack speed")]
-    public float MinAttackSpeed;
-
-
-    public UnitManager UnitManager;
-    public EnemyUnitManager EnemyUnitManager;
-    public EnhancementsCardManager EnhancementsCardManager;
-    public SpellsCardManager SpellsCardManager;
-
-    public void ScreenScaleFactor()
-    {
-        UnitManager.SwordsmanAttackDistance *= GameController.Instance.ScreenScaleFactor;
-        UnitManager.CrossbowArrowSpeed*= GameController.Instance.ScreenScaleFactor;
-
-        EnemyUnitManager.EnemyAttackDistance*= GameController.Instance.ScreenScaleFactor;
-        EnemyUnitManager.EnemySpeed*= GameController.Instance.ScreenScaleFactor;
-    }
-
-
 }
 
+[System.Serializable]
+public class OtherFieldsManager
+{
+    public int NumberCardsHand;
+    public float MeleeAtackRange;
+    public float MinAttackSpeed;
+}
+[System.Serializable]
+public class ManaManager
+{
+    public float ManaRegenerationRate;
+    public int ManaPerTick;
+    public int StartMana;
+}
 [System.Serializable]
 public class UnitManager
 {
@@ -56,6 +74,7 @@ public class UnitManager
     public float SwordsmanAttackDistance;
     public float SwordsmanDamageAbsorption;
     public int SwordsmanMana;
+
     [Header("Crossbowman")]
     public float CrossbowmanHealth;
     public float CrossbowArrowDamage;
@@ -81,6 +100,7 @@ public class EnhancementsCardManager
     [Header("Healing")]
     public float HealQuantity;
     public int HealCardManaCost;
+
     [Header("Rage")]
     public float RageAttackSpeed;
     public float RageDuration;
@@ -96,6 +116,7 @@ public class SpellsCardManager
     public float DOTFireExplosionDamage;
     public int FireExplosionDuration;
     public int FireExplosionManaCost;
+
     [Header("IceBlast")]
     public int IceBlastWidth;
     public int IceBlastHeight;

@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &264902295031863363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 264902295031863362}
+  - component: {fileID: 264902295031863373}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &264902295031863362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264902295031863363}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &264902295031863373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264902295031863363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef9601df2d31564b8875e79ccc608b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mana:
+    Seconds: 4
+    ManaPerTick: 1
+    StartMana: 0
+  OtherFields:
+    NumberCardsHand: 6
+    MinAttackSpeed: 0.25
+  Unit:
+    SwordsmanHealth: 0
+    SwordsmanDamage: 0
+    SwordsmanAttackSpeed: 0
+    SwordsmanAttackDistance: 0
+    SwordsmanDamageAbsorption: 0
+    SwordsmanMana: 0
+    CrossbowmanHealth: 0
+    CrossbowArrowDamage: 0
+    CrossbowmanAttackSpeed: 0
+    CrossbowArrowSpeed: 0
+    CrossbowmanIgnoringArmor: 0
+    CrossbowmanMana: 0
+  EnemyUnit:
+    EnemyHealth: 0
+    EnemyDamage: 0
+    EnemyAttackSpeed: 0
+    EnemyAttackDistance: 0
+    EnemySpeed: 0
+    Armor: 0
+  EnhancementsCard:
+    HealQuantity: 0
+    HealCardManaCost: 0
+    RageAttackSpeed: 0
+    RageDuration: 0
+    RageCardManaCost: 0
+  SpellsCard:
+    FireExplosionWidth: 0
+    FireExplosionHeight: 0
+    FireExplosionDamage: 0
+    DOTFireExplosionDamage: 0
+    FireExplosionDuration: 0
+    FireExplosionManaCost: 0
+    IceBlastWidth: 0
+    IceBlastHeight: 0
+    IceBlastDamage: 0
+    IceBlastSpeedDebuff: 0
+    IceBlastDuration: 0
+    IceBlastManaCost: 0

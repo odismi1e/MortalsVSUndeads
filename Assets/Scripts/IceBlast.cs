@@ -13,31 +13,31 @@ public class IceBlast : MonoBehaviour
     private IEnumerator SpeedDebuff(Entity enemy)
     {
         float speedNow = enemy.GetSpeed();
-        enemy.SetSpeed(enemy.GetSpeed()*((100f-GameManager.Instance.SpellsCardManager.IceBlastSpeedDebuff)/100));
-        yield return new WaitForSeconds(GameManager.Instance.SpellsCardManager.IceBlastDuration);
+        enemy.SetSpeed(enemy.GetSpeed()*((100f-GameManager.Instance.SpellsCard.IceBlastSpeedDebuff)/100));
+        yield return new WaitForSeconds(GameManager.Instance.SpellsCard.IceBlastDuration);
         enemy.SetSpeed(speedNow);
     }
     private void Action()
     {
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y),   
-     (GridController.Instance.HeightGrid / GridController.Instance.HorizontalCount) * GameManager.Instance.SpellsCardManager.IceBlastHeight);
+     (GridController.Instance.HeightGrid / GridController.Instance.HorizontalCount) * GameManager.Instance.SpellsCard.IceBlastHeight);
         foreach (Collider2D a in colliders)
         {
             if (a.gameObject.tag == "Enemy")
             {
                 entityEnemy = a.gameObject.GetComponent<Entity>();
-                entityEnemy.SetHealtNow(entityEnemy.GetHealthNow() - GameManager.Instance.SpellsCardManager.IceBlastDamage);
+                entityEnemy.SetHealtNow(entityEnemy.GetHealthNow() - GameManager.Instance.SpellsCard.IceBlastDamage);
                 entityEnemy.HpBar();
                 StartCoroutine(SpeedDebuff(entityEnemy));
             }
         }
-        Destroy(gameObject, GameManager.Instance.SpellsCardManager.IceBlastDuration + .1f);
+        Destroy(gameObject, GameManager.Instance.SpellsCard.IceBlastDuration + .1f);
     }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0),
-         (GridController.Instance.HeightGrid / GridController.Instance.HorizontalCount) * GameManager.Instance.SpellsCardManager.IceBlastHeight/2f);
+         (GridController.Instance.HeightGrid / GridController.Instance.HorizontalCount) * GameManager.Instance.SpellsCard.IceBlastHeight/2f);
     }
 }

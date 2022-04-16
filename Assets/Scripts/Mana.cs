@@ -15,9 +15,9 @@ public class Mana : MonoBehaviour
     }
     private void Awake()
     {
-        _seconds = GameManager.Instance.Seconds;
-        _mana = GameManager.Instance.Mana;
-        _startMana = GameManager.Instance.StartMana;
+        _seconds = GameManager.Instance.ManaSystem.ManaRegenerationRate;
+        _mana = GameManager.Instance.ManaSystem.ManaPerTick;
+        _startMana = GameManager.Instance.ManaSystem.StartMana;
     }
     private IEnumerator AddendumMana()
     {

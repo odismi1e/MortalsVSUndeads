@@ -15,9 +15,9 @@ public class Crossbowman : Entity
     private int _state;
     private void Start()
     {
-        _healthMax = GameManager.Instance.UnitManager.SwordsmanHealth;
+        _healthMax = GameManager.Instance.Unit.SwordsmanHealth;
         _healthNow = _healthMax;
-        _attackSpeed = GameManager.Instance.UnitManager.CrossbowmanAttackSpeed;
+        _attackSpeed = GameManager.Instance.Unit.CrossbowmanAttackSpeed;
         StartCoroutine(CheckSecurity());
 
         GameController.Instance.Unit.Add(gameObject.GetComponent<Entity>());
