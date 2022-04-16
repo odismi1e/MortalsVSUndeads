@@ -25,6 +25,7 @@ ScriptedImporter:
     streamingMipmaps: 1
     streamingMipmapsPriority: 0
     vTOnly: 0
+    ignoreMasterTextureLimit: 0
     nPOTScale: 1
     sRGBTexture: 1
     spriteMode: 2
@@ -79,7 +80,6 @@ ScriptedImporter:
       width: 0
       height: 0
     spriteID: 
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -103,13 +103,16 @@ ScriptedImporter:
       width: 409
       height: 334
     spriteID: 6660ea0d9dabba94db9d7a321e0e51d2
-    internalID: 0
     spriteBone:
     - name: Feather Bone
+      guid: 
       position: {x: 365.667, y: 92.48096, z: 0}
       rotation: {x: 0, y: 0, z: 0.9598481, w: 0.28052053}
       length: 368.00958
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 372.53003, y: 3.8640137}
@@ -489,13 +492,16 @@ ScriptedImporter:
       width: 803
       height: 827
     spriteID: 935297700b6cf7f45bd9041089104d05
-    internalID: 0
     spriteBone:
     - name: Head Bone
+      guid: 
       position: {x: 415.6643, y: 60.31494, z: 0}
       rotation: {x: 0, y: 0, z: 0.71509624, w: 0.69902605}
       length: 715.9602
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 731.584, y: 4.011963}
@@ -910,18 +916,25 @@ ScriptedImporter:
       width: 729
       height: 290
     spriteID: 0309fe80d8ae40d4fade13f933e6c2e0
-    internalID: 0
     spriteBone:
     - name: Cloak Bone 2
+      guid: 
       position: {x: 387.38812, y: 113.32617, z: 0}
       rotation: {x: 0, y: 0, z: 0.97286224, w: 0.23138528}
       length: 310.72125
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Body Bone 2
+      guid: 
       position: {x: 466.65967, y: -196.76501, z: 0}
       rotation: {x: 0, y: 0, z: 0.7146962, w: 0.69943506}
       length: 324.15552
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 571.746, y: 22.874023}
@@ -1400,13 +1413,16 @@ ScriptedImporter:
       width: 212
       height: 254
     spriteID: 327985b5c715707498ef4cac6c6c3fab
-    internalID: 0
     spriteBone:
     - name: Right Hand Bone
+      guid: 
       position: {x: 144.3248, y: 235.40845, z: 0}
       rotation: {x: 0, y: 0, z: 0.83406234, w: -0.55167025}
       length: 179.29718
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 152.342, y: 1.0939941}
@@ -1806,13 +1822,16 @@ ScriptedImporter:
       width: 360
       height: 327
     spriteID: 7d6a0f901062d594bb071be13f7a76fd
-    internalID: 0
     spriteBone:
     - name: Right Forearm Bone
+      guid: 
       position: {x: 203.3894, y: 192.44617, z: 0}
       rotation: {x: 0, y: 0, z: 0.83601916, w: -0.5487002}
       length: 163.53807
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 250, y: 1.5}
@@ -2304,18 +2323,25 @@ ScriptedImporter:
       width: 373
       height: 319
     spriteID: eb8700ea1c081ce47b9670eee7151d47
-    internalID: 0
     spriteBone:
     - name: Right Arm Bone
+      guid: 
       position: {x: 217.6178, y: 220.63574, z: 0}
       rotation: {x: 0, y: 0, z: 0.85935056, w: -0.511387}
       length: 283.5173
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Right Forearm Bone
+      guid: 
       position: {x: 283.5172, y: -0.00010889709, z: 0}
       rotation: {x: 0, y: 0, z: 0.0439965, w: 0.9990317}
       length: 163.53806
       parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 242.01398, y: 10.832031}
@@ -2708,18 +2734,25 @@ ScriptedImporter:
       width: 820
       height: 689
     spriteID: edc18ed621aba1d4a85a5785861c0071
-    internalID: 0
     spriteBone:
     - name: Body Bone 1
+      guid: 
       position: {x: 477.99146, y: 175.76318, z: 0}
       rotation: {x: 0, y: 0, z: 0.71040356, w: 0.70379454}
       length: 249.48279
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Body Bone 2
+      guid: 
       position: {x: 249.48267, y: 0.0000025805202, z: 0}
       rotation: {x: 0, y: 0, z: 0.006118149, w: 0.9999813}
       length: 324.15558
       parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 628.5923, y: 9.697516}
@@ -3319,13 +3352,16 @@ ScriptedImporter:
       width: 264
       height: 361
     spriteID: 43ca686a66be3264f8a30183d6a6fb37
-    internalID: 0
     spriteBone:
     - name: Left Forearm Bone
+      guid: 
       position: {x: 147.65796, y: 285.90363, z: 0}
       rotation: {x: 0, y: 0, z: -0.6289351, w: 0.77745783}
       length: 245.56264
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 178.15198, y: 0.11199951}
@@ -3749,13 +3785,16 @@ ScriptedImporter:
       width: 312
       height: 318
     spriteID: 98aa762e5d549d146a3a7cc58e66703f
-    internalID: 0
     spriteBone:
     - name: Left Arm Bone
+      guid: 
       position: {x: 128.38647, y: 220.71777, z: 0}
       rotation: {x: 0, y: 0, z: -0.5847103, w: 0.81124216}
       length: 250.67805
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 156.12799, y: 1.4719238}
@@ -4104,13 +4143,16 @@ ScriptedImporter:
       width: 248
       height: 286
     spriteID: 852376c91503fbe4f84bef7d2e28a02f
-    internalID: 0
     spriteBone:
     - name: Right Lower Foot Bone
+      guid: 
       position: {x: 179.20471, y: 311.5735, z: 0}
       rotation: {x: 0, y: 0, z: 0.7181789, w: -0.6958586}
       length: 221.60396
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 83.880005, y: 2.5379639}
@@ -4500,13 +4542,16 @@ ScriptedImporter:
       width: 250
       height: 250
     spriteID: 896a274bec419404ea987cf3ed1ee7b2
-    internalID: 0
     spriteBone:
     - name: Left Lower Foot Bone
+      guid: 
       position: {x: 118.16394, y: 213.95459, z: 0}
       rotation: {x: 0, y: 0, z: 0.7118674, w: -0.70231396}
       length: 172.54765
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 192.422, y: 0.50390625}
@@ -4886,13 +4931,16 @@ ScriptedImporter:
       width: 224
       height: 218
     spriteID: 7ff4e093d9d966d4281ce06bc3b6fe1d
-    internalID: 0
     spriteBone:
     - name: Right Upper Foot Bone
+      guid: 
       position: {x: 106.86743, y: 249.76855, z: 0}
       rotation: {x: 0, y: 0, z: 0.7163467, w: -0.6977446}
       length: 177.25638
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 154.32397, y: 12.458008}
@@ -5230,13 +5278,16 @@ ScriptedImporter:
       width: 250
       height: 250
     spriteID: f9627cd85c8b90c49acdb2e4fbddcf37
-    internalID: 0
     spriteBone:
     - name: Left Upper Foot Bone
+      guid: 
       position: {x: 149.16418, y: 265.42627, z: 0}
       rotation: {x: 0, y: 0, z: 0.7071072, w: -0.7071065}
       length: 249.47174
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 238, y: 2}
@@ -5607,23 +5658,34 @@ ScriptedImporter:
       width: 889
       height: 973
     spriteID: 1569232d34a9f2849af0332c861c619c
-    internalID: 0
     spriteBone:
     - name: Cloak Bone 1
+      guid: 
       position: {x: 436.73102, y: 85.94336, z: 0}
       rotation: {x: 0, y: 0, z: 0.70187354, w: 0.7123016}
       length: 790.46875
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Cloak Bone 3
+      guid: 
       position: {x: 611.842, y: 253.85944, z: 0}
       rotation: {x: 0, y: 0, z: 0.99787, w: 0.06523484}
       length: 579.661
       parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Cloak Bone 4
+      guid: 
       position: {x: 581.0816, y: -348.18958, z: 0}
       rotation: {x: 0, y: 0, z: -0.9982848, w: 0.058544025}
       length: 592.9792
       parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 525.41797, y: 2.7039795}
@@ -6068,243 +6130,161 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -548, y: 1065}
-  platformSettings:
-  - name: DefaultTexturePlatform
-    overridden: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Standalone
-    overridden: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Android
-    overridden: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  mosaicLayers: 1
-  documentPivot: {x: 0, y: 0}
-  documentAlignment: 0
-  importHiddenLayers: 0
-  importedTextureWidth: 1024
-  importedTextureHeight: 2048
-  documentSize: {x: 2048, y: 2048}
-  paperDollMode: 0
-  keepDupilcateSpriteName: 0
-  spriteCategoryList:
-    categories: []
-  textureActualWidth: 2048
-  textureActualHeight: 4096
-  spritePackingTag: 
-  resliceFromLayer: 0
-  characterMode: 1
-  mosaicPSDLayers: []
-  rigPSDLayers:
-  - name: Feather
-    spriteName: Feather
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 6660ea0d9dabba94db9d7a321e0e51d2
-    layerID: 15
-    mosaicPosition: {x: 901, y: 2187}
-  - name: Swordsman Head
-    spriteName: Swordsman Head
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 935297700b6cf7f45bd9041089104d05
-    layerID: 14
-    mosaicPosition: {x: 4, y: 2300}
-  - name: UpperCloak
-    spriteName: UpperCloak
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 0309fe80d8ae40d4fade13f933e6c2e0
-    layerID: 13
-    mosaicPosition: {x: 4, y: 4}
-  - name: Swordsman Hand R
-    spriteName: Swordsman Hand R
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 327985b5c715707498ef4cac6c6c3fab
-    layerID: 12
-    mosaicPosition: {x: 4, y: 3176}
-  - name: Swordsman Forearm R
-    spriteName: Swordsman Forearm R
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 7d6a0f901062d594bb071be13f7a76fd
-    layerID: 11
-    mosaicPosition: {x: 1423, y: 4}
-  - name: Swordsman  Arm R
-    spriteName: Swordsman  Arm R
-    isGroup: 0
-    parentIndex: -1
-    spriteID: eb8700ea1c081ce47b9670eee7151d47
-    layerID: 10
-    mosaicPosition: {x: 509, y: 3617}
-  - name: Swordsman  Body
-    spriteName: Swordsman  Body
-    isGroup: 0
-    parentIndex: -1
-    spriteID: edc18ed621aba1d4a85a5785861c0071
-    layerID: 9
-    mosaicPosition: {x: 901, y: 1256}
-  - name: Swordsman  Forearm L
-    spriteName: Swordsman  Forearm L
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 43ca686a66be3264f8a30183d6a6fb37
-    layerID: 8
-    mosaicPosition: {x: 1423, y: 636}
-  - name: Swordsman Arm L
-    spriteName: Swordsman Arm L
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 98aa762e5d549d146a3a7cc58e66703f
-    layerID: 7
-    mosaicPosition: {x: 509, y: 3176}
-  - name: Swordsman LowerFoot R
-    spriteName: Swordsman LowerFoot R
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 852376c91503fbe4f84bef7d2e28a02f
-    layerID: 6
-    mosaicPosition: {x: 1734, y: 636}
-  - name: Swordsman LowerFoot L
-    spriteName: Swordsman LowerFoot L
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 896a274bec419404ea987cf3ed1ee7b2
-    layerID: 4
-    mosaicPosition: {x: 901, y: 2523}
-  - name: Swordsman UpperFoot R
-    spriteName: Swordsman UpperFoot R
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 7ff4e093d9d966d4281ce06bc3b6fe1d
-    layerID: 5
-    mosaicPosition: {x: 1729, y: 1637}
-  - name: Swordsman UpperFoot L
-    spriteName: Swordsman UpperFoot L
-    isGroup: 0
-    parentIndex: -1
-    spriteID: f9627cd85c8b90c49acdb2e4fbddcf37
-    layerID: 3
-    mosaicPosition: {x: 1729, y: 1256}
-  - name: LowerCloak
-    spriteName: LowerCloak
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 1569232d34a9f2849af0332c861c619c
-    layerID: 2
-    mosaicPosition: {x: 4, y: 1256}
   characterData:
     bones:
     - name: Body Bone 1
+      guid: 
       position: {x: 1081.9915, y: 507.76312, z: 0}
       rotation: {x: 0, y: 0, z: 0.71040356, w: 0.70379454}
       length: 249.48277
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Body Bone 2
+      guid: 
       position: {x: 249.48277, y: 0.00001617038, z: 0}
       rotation: {x: 0, y: 0, z: 0.0061181467, w: 0.9999813}
       length: 324.15558
       parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Head Bone
+      guid: 
       position: {x: 324.15552, y: -0.00034583398, z: 0}
       rotation: {x: 0, y: 0, z: 0.000572096, w: 0.9999999}
       length: 715.9602
       parentId: 1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Right Arm Bone
+      guid: 
       position: {x: 348.37204, y: 365.60873, z: 0}
       rotation: {x: 0, y: -0, z: 0.96654624, w: 0.2564926}
       length: 283.51727
       parentId: 1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Right Forearm Bone
+      guid: 
       position: {x: 283.51733, y: -0.000044591092, z: 0}
       rotation: {x: 0, y: 0, z: 0.043996494, w: 0.9990317}
       length: 163.53806
       parentId: 3
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Left Arm Bone
+      guid: 
       position: {x: 227.88034, y: -354.72742, z: 0}
       rotation: {x: 0, y: -0, z: -0.98875856, w: 0.14952093}
       length: 250.67805
       parentId: 1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Left Forearm Bone
+      guid: 
       position: {x: 250.6781, y: 0.00010677511, z: 0}
       rotation: {x: 0, y: 0, z: -0.05563101, w: 0.9984514}
       length: 245.56264
       parentId: 5
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Right Upper Foot Bone
+      guid: 
       position: {x: -4.488284, y: 268.1777, z: 0}
       rotation: {x: 0, y: -0, z: 0.9998411, w: 0.017826404}
       length: 177.25641
       parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Right Lower Foot Bone
+      guid: 
       position: {x: 177.25642, y: 0.000008907014, z: 0}
       rotation: {x: 0, y: 0, z: -0.00262946, w: 0.9999966}
       length: 221.60402
       parentId: 7
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Left Upper Foot Bone
+      guid: 
       position: {x: 2.7452776, y: -205.20741, z: 0}
       rotation: {x: 0, y: -0, z: 0.9999891, w: 0.004673778}
       length: 249.47177
       parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Left Lower Foot Bone
+      guid: 
       position: {x: 249.47174, y: -0.000010637916, z: 0}
       rotation: {x: 0, y: 0, z: -0.006754803, w: 0.99997723}
       length: 172.54767
       parentId: 9
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Cloak Bone 1
+      guid: 
       position: {x: -478.2174, y: 101.27277, z: 0}
       rotation: {x: 0, y: 0, z: -0.018164294, w: 0.999835}
       length: 790.4688
       parentId: 1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Cloak Bone 2
+      guid: 
       position: {x: 790.4688, y: -0.000008791525, z: 0}
       rotation: {x: 0, y: 0, z: 0.53056806, w: 0.84764236}
       length: 310.7213
       parentId: 11
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Feather Bone
+      guid: 
       position: {x: 650.74945, y: 414.31583, z: 0}
       rotation: {x: 0, y: 0, z: 0.47035962, w: 0.88247484}
       length: 368.0097
       parentId: 2
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Cloak Bone 3
+      guid: 
       position: {x: 611.84204, y: 253.85947, z: 0}
       rotation: {x: 0, y: -0, z: 0.99786997, w: 0.06523488}
       length: 579.66113
       parentId: 11
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Cloak Bone 4
+      guid: 
       position: {x: 581.08167, y: -348.1897, z: 0}
       rotation: {x: 0, y: -0, z: -0.9982848, w: 0.058544}
       length: 592.9793
       parentId: 11
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Right Hand Bone
+      guid: 
       position: {x: 163.53806, y: 0.000023050892, z: 0}
       rotation: {x: 0, y: 0, z: 0.003556766, w: 0.99999374}
       length: 179.29718
       parentId: 4
+      color:
+        serializedVersion: 2
+        rgba: 0
     parts:
     - spritePosition:
         x: 278
@@ -6434,8 +6414,209 @@ ScriptedImporter:
       order: 0
     dimension: {x: 0, y: 0}
     characterGroups: []
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Android
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 0
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  skeletonAssetReferenceID: 
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: Feather
+    spriteName: Feather
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6660ea0d9dabba94db9d7a321e0e51d2
+    layerID: 15
+    mosaicPosition: {x: 901, y: 2187}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Swordsman Head
+    spriteName: Swordsman Head
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 935297700b6cf7f45bd9041089104d05
+    layerID: 14
+    mosaicPosition: {x: 4, y: 2300}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: UpperCloak
+    spriteName: UpperCloak
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 0309fe80d8ae40d4fade13f933e6c2e0
+    layerID: 13
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Swordsman Hand R
+    spriteName: Swordsman Hand R
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 327985b5c715707498ef4cac6c6c3fab
+    layerID: 12
+    mosaicPosition: {x: 4, y: 3176}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Swordsman Forearm R
+    spriteName: Swordsman Forearm R
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7d6a0f901062d594bb071be13f7a76fd
+    layerID: 11
+    mosaicPosition: {x: 1423, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Swordsman  Arm R
+    spriteName: Swordsman  Arm R
+    isGroup: 0
+    parentIndex: -1
+    spriteID: eb8700ea1c081ce47b9670eee7151d47
+    layerID: 10
+    mosaicPosition: {x: 509, y: 3617}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Swordsman  Body
+    spriteName: Swordsman  Body
+    isGroup: 0
+    parentIndex: -1
+    spriteID: edc18ed621aba1d4a85a5785861c0071
+    layerID: 9
+    mosaicPosition: {x: 901, y: 1256}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Swordsman  Forearm L
+    spriteName: Swordsman  Forearm L
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 43ca686a66be3264f8a30183d6a6fb37
+    layerID: 8
+    mosaicPosition: {x: 1423, y: 636}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Swordsman Arm L
+    spriteName: Swordsman Arm L
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 98aa762e5d549d146a3a7cc58e66703f
+    layerID: 7
+    mosaicPosition: {x: 509, y: 3176}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Swordsman LowerFoot R
+    spriteName: Swordsman LowerFoot R
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 852376c91503fbe4f84bef7d2e28a02f
+    layerID: 6
+    mosaicPosition: {x: 1734, y: 636}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Swordsman LowerFoot L
+    spriteName: Swordsman LowerFoot L
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 896a274bec419404ea987cf3ed1ee7b2
+    layerID: 4
+    mosaicPosition: {x: 901, y: 2523}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Swordsman UpperFoot R
+    spriteName: Swordsman UpperFoot R
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7ff4e093d9d966d4281ce06bc3b6fe1d
+    layerID: 5
+    mosaicPosition: {x: 1729, y: 1637}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Swordsman UpperFoot L
+    spriteName: Swordsman UpperFoot L
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f9627cd85c8b90c49acdb2e4fbddcf37
+    layerID: 3
+    mosaicPosition: {x: 1729, y: 1256}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: LowerCloak
+    spriteName: LowerCloak
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 1569232d34a9f2849af0332c861c619c
+    layerID: 2
+    mosaicPosition: {x: 4, y: 1256}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting: []
   generateGOHierarchy: 0
   textureAssetName: Swordsman_PSB Texture
   prefabAssetName: Swordsman_PSB Prefab
   spriteLibAssetName: Swordsman_PSB Sprite Lib
+  skeletonAssetName: 
   secondarySpriteTextures: []

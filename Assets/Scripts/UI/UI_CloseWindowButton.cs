@@ -23,6 +23,6 @@ public class UI_CloseWindowButton : MonoBehaviour
     }
     private void OnClickEvent()
     {
-        UI_Controller.Instance.SetWindowInactive(windowName);
+        UI_Controller.Instance.SetWindowInactive(windowName, this.gameObject);
     }
 }

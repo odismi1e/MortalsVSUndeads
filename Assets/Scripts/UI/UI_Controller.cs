@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class UI_Controller : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class UI_Controller : MonoBehaviour
 
     [SerializeField] private GameObject _currentScreen;
     private GameObject _currentWindow;
+    private GameObject _previousWindow;
     private string _cloneString = "(Clone)";
 
     
@@ -22,10 +24,9 @@ public class UI_Controller : MonoBehaviour
     void Awake() => InitializeSingleton();
     void Start()
     {
-        _screens = Resources.LoadAll<UI_Screen>("Screens");
-        _windows = Resources.LoadAll<UI_Window>("Windows");
+        _screens = Resources.LoadAll<UI_Screen>("UI/Screens");
+        _windows = Resources.LoadAll<UI_Window>("UI/Windows");
         InstantiateAllScreensAndWindows();
-        //SetScreenActive(ScreenName.Start);
     }
     public void SetScreenActive(ScreenName name)
     {
@@ -48,10 +49,29 @@ public class UI_Controller : MonoBehaviour
         _currentWindow.SetActive(true);
     }
 
-    public void SetWindowInactive(WindowName name)
+    public void SetWindowInactive(WindowName name, GameObject go)
     {
-        _currentWindow = _instantiatedWindows.Find(element => element.name == name.ToString() + _cloneString);
-        _currentWindow.SetActive(false);
+        if (name == WindowName.Current)
+        {
+            go.GetComponentInParent<UI_Window>().gameObject.SetActive(false);
+        }
+        else
+        {
+            _currentWindow = _instantiatedWindows.Find(element => element.name == name.ToString() + _cloneString);
+            _currentWindow.SetActive(false);
+        }
+    }
+
+    public void CloseAll()
+    {
+        foreach (var element in _instantiatedScreens)
+        {
+            element.SetActive(false);
+        }
+        foreach (var element in _instantiatedWindows)
+        {
+            element.SetActive(false);
+        }
     }
 
     private void InitializeSingleton()

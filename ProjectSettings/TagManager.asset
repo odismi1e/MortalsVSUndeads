@@ -49,6 +49,9 @@ TagManager:
   - name: Ally
     uniqueID: 2085674455
     locked: 0
+  - name: VFX
+    uniqueID: 677740611
+    locked: 0
   - name: Card
     uniqueID: 724786605
     locked: 0
