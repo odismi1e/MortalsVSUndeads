@@ -1433,6 +1433,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2083739545, guid: 496fae3818aa455449fc2bca2f7f9cad, type: 3}
+      propertyPath: LocalizationKey
+      value: Buttons.Play
+      objectReference: {fileID: 0}
     - target: {fileID: 3818571979222871466, guid: 496fae3818aa455449fc2bca2f7f9cad, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
