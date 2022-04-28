@@ -14,12 +14,12 @@ public class Enemy : Entity
 
     private void Start()
     {
-        _healthMax = GameManager.Instance.EnemyUnit.EnemyHealth;
+        _healthMax = GameManager.Instance.EnemyUnits.SkeletonHealth;
         _healthNow = _healthMax;
-        _damage = GameManager.Instance.EnemyUnit.EnemyDamage;
-        _attackSpeed = GameManager.Instance.EnemyUnit.EnemyAttackSpeed;
-        _speed = GameManager.Instance.EnemyUnit.EnemySpeed;
-        _damageAbsorption = GameManager.Instance.EnemyUnit.Armor;
+        _damage = GameManager.Instance.EnemyUnits.SkeletonDamage;
+        _attackSpeed = GameManager.Instance.EnemyUnits.SkeletonAttackSpeed;
+        _speed = GameManager.Instance.EnemyUnits.SkeletonSpeed;
+        _damageAbsorption = GameManager.Instance.EnemyUnits.SkeletonArmor;
 
         StartCoroutine(CheckNearestUnitToAttack());
 
@@ -107,8 +107,8 @@ public class Enemy : Entity
     private Entity SearchEnemies()
     {
         Collider2D[] colliders = Physics2D.OverlapBoxAll
-            (new Vector2(gameObject.transform.position.x - (GameManager.Instance.OtherFields.MeleeAtackRange / 2), gameObject.transform.position.y),
-            new Vector2(GameManager.Instance.OtherFields.MeleeAtackRange, 0.1f), 0);
+            (new Vector2(gameObject.transform.position.x - (GameManager.Instance.Global.MeleeAtackRange / 2), gameObject.transform.position.y),
+            new Vector2(GameManager.Instance.Global.MeleeAtackRange, 0.1f), 0);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject.tag == "Unit")
@@ -122,8 +122,8 @@ public class Enemy : Entity
     {
         int quantityEnemies = 0;
         Collider2D[] colliders = Physics2D.OverlapBoxAll
-           (new Vector2(gameObject.transform.position.x - (GameManager.Instance.OtherFields.MeleeAtackRange / 2), gameObject.transform.position.y),
-           new Vector2(GameManager.Instance.OtherFields.MeleeAtackRange, 0.1f), 0);
+           (new Vector2(gameObject.transform.position.x - (GameManager.Instance.Global.MeleeAtackRange / 2), gameObject.transform.position.y),
+           new Vector2(GameManager.Instance.Global.MeleeAtackRange, 0.1f), 0);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject.tag == "Unit")

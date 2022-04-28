@@ -8,9 +8,10 @@ namespace Assets.SimpleLocalization
 	/// Localize text component.
 	/// </summary>
     [RequireComponent(typeof(TextMeshProUGUI))]
-    public class LocalizedText : MonoBehaviour
+    public class LocalizedButtonText : MonoBehaviour
     {
-        public string LocalizationKey;
+        public LocalizationButtonKey localizationButtonKey;
+        private string listKey = "Buttons";
 
         public void Start()
         {
@@ -25,7 +26,8 @@ namespace Assets.SimpleLocalization
 
         private void Localize()
         {
-            GetComponent<TextMeshProUGUI>().text = LocalizationManager.Localize(LocalizationKey);
+            string localizationKey = LocalizationManager.JoinStringsWithDot(listKey, localizationButtonKey.ToString());
+            GetComponent<TextMeshProUGUI>().text = LocalizationManager.Localize(localizationKey);
         }
     }
 }

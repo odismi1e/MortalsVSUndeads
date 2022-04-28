@@ -119,9 +119,9 @@ public class Entity : MonoBehaviour
     }
     public void SetAttackSpeed(float value)
     {
-        if(value<=GameManager.Instance.OtherFields.MinAttackSpeed)
+        if(value<=GameManager.Instance.Global.MinAttackSpeed)
         {
-            _attackSpeed = GameManager.Instance.OtherFields.MinAttackSpeed;
+            _attackSpeed = GameManager.Instance.Global.MinAttackSpeed;
         }
         else
         {

@@ -11,8 +11,8 @@ public class CrossbowArrow : MonoBehaviour
     private void Awake()
     {
         _tr = gameObject.transform;
-        _damage = GameManager.Instance.Unit.CrossbowArrowDamage;
-        _crossbowArrowSpeed = GameManager.Instance.Unit.CrossbowArrowSpeed;
+        _damage = GameManager.Instance.Units.CrossbowmanDamage;
+        _crossbowArrowSpeed = GameManager.Instance.Units.CrossbowmanArrowSpeed;
     }
     private void FixedUpdate()
     {
@@ -29,7 +29,7 @@ public class CrossbowArrow : MonoBehaviour
             if (_numberGoals > 0)
             {
                 _numberGoals--;
-                other.gameObject.GetComponent<Entity>().ApplyDamage(_damage, GameManager.Instance.Unit.CrossbowmanIgnoringArmor);
+                other.gameObject.GetComponent<Entity>().ApplyDamage(_damage, GameManager.Instance.Units.CrossbowmanArmorPenetration);
                 Destroy(gameObject);
             }
         }

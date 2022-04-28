@@ -45,43 +45,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mana:
-    Seconds: 4
-    ManaPerTick: 1
-    StartMana: 0
-  OtherFields:
-    NumberCardsHand: 6
-    MinAttackSpeed: 0.25
-  Unit:
+    ManaRegenerationRate: 0
+    ManaPerTick: 0
+    ManaStartValue: 0
+  Global:
+    MaxNumCardsInHand: 0
+    MeleeAtackRange: 0
+    MinAttackSpeed: 0
+  Units:
     SwordsmanHealth: 0
     SwordsmanDamage: 0
     SwordsmanAttackSpeed: 0
     SwordsmanAttackDistance: 0
     SwordsmanDamageAbsorption: 0
-    SwordsmanMana: 0
+    SwordsmanManaCost: 0
     CrossbowmanHealth: 0
-    CrossbowArrowDamage: 0
+    CrossbowmanDamage: 0
     CrossbowmanAttackSpeed: 0
-    CrossbowArrowSpeed: 0
-    CrossbowmanIgnoringArmor: 0
-    CrossbowmanMana: 0
-  EnemyUnit:
-    EnemyHealth: 0
-    EnemyDamage: 0
-    EnemyAttackSpeed: 0
-    EnemyAttackDistance: 0
-    EnemySpeed: 0
-    Armor: 0
-  EnhancementsCard:
+    CrossbowmanArrowSpeed: 0
+    CrossbowmanArmorPenetration: 0
+    CrossbowmanManaCost: 0
+  EnemyUnits:
+    SkeletonHealth: 0
+    SkeletonDamage: 0
+    SkeletonAttackSpeed: 0
+    SkeletonAttackDistance: 0
+    SkeletonSpeed: 0
+    SkeletonArmor: 0
+  Enhancements:
     HealQuantity: 0
     HealCardManaCost: 0
     RageAttackSpeed: 0
     RageDuration: 0
     RageCardManaCost: 0
-  SpellsCard:
+  Spells:
     FireExplosionWidth: 0
     FireExplosionHeight: 0
     FireExplosionDamage: 0
-    DOTFireExplosionDamage: 0
+    FireExplosionDOTDamage: 0
     FireExplosionDuration: 0
     FireExplosionManaCost: 0
     IceBlastWidth: 0

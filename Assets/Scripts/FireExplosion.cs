@@ -12,12 +12,12 @@ public class FireExplosion:MonoBehaviour
     }
     private IEnumerator DOT(Entity enemy)
     {
-        for (int i = 0; i < GameManager.Instance.SpellsCard.FireExplosionDuration; i++)
+        for (int i = 0; i < GameManager.Instance.Spells.FireExplosionDuration; i++)
         {
             if (enemy != null)
             {
                 yield return new WaitForSeconds(1);
-                enemy.SetHealtNow(enemy.GetHealthNow() -  GameManager.Instance.SpellsCard.DOTFireExplosionDamage);
+                enemy.SetHealtNow(enemy.GetHealthNow() -  GameManager.Instance.Spells.FireExplosionDOTDamage);
                 enemy.HpBar();
             }
         }
@@ -26,23 +26,23 @@ public class FireExplosion:MonoBehaviour
     {
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y),
-         (GridController.Instance.HeightGrid / GridController.Instance.HorizontalCount) * GameManager.Instance.SpellsCard.FireExplosionHeight/2f);
+         (GridController.Instance.HeightGrid / GridController.Instance.HorizontalCount) * GameManager.Instance.Spells.FireExplosionHeight/2f);
         foreach (Collider2D a in colliders)
         {
             if (a.gameObject.tag == "Enemy")
             {
                 entityEnemy = a.gameObject.GetComponent<Entity>();
-                entityEnemy.SetHealtNow(entityEnemy.GetHealthNow() - GameManager.Instance.SpellsCard.FireExplosionDamage);
+                entityEnemy.SetHealtNow(entityEnemy.GetHealthNow() - GameManager.Instance.Spells.FireExplosionDamage);
                 entityEnemy.HpBar();
                 StartCoroutine(DOT(entityEnemy));
             }
         }
-        Destroy(gameObject, GameManager.Instance.SpellsCard.FireExplosionDuration + .1f);
+        Destroy(gameObject, GameManager.Instance.Spells.FireExplosionDuration + .1f);
     }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(new Vector3(gameObject.transform.position.x, gameObject.transform.position.y,0),
-         (GridController.Instance.HeightGrid / GridController.Instance.HorizontalCount) * GameManager.Instance.SpellsCard.FireExplosionHeight/2f);
+         (GridController.Instance.HeightGrid / GridController.Instance.HorizontalCount) * GameManager.Instance.Spells.FireExplosionHeight/2f);
     }
 }

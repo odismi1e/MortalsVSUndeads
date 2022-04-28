@@ -1,3 +1,5 @@
-Key,English,Russian
-Buttons.Play,Play,Играть
-Buttons.Exit,Exit,Выход
+Key,English,Russian,German
+Buttons.Play,Play,Играть,Spielen
+Buttons.Exit,Exit,Выход,Ausgang
+Buttons.Shop,Shop,Магазин,Geschäft
+Buttons.Options,Options,Настройки,Optionen

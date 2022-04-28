@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TableId: 1KHkB_nTi9bliS-Ic6A1bWN5fRzyOpQFBwSz_-9u_lOs
   Sheets:
-  - Name: Mana
+  - Name: Cards
     Id: 0
   SaveFolder: {fileID: 102900000, guid: 08494e6de4e01884fbc064a31abf2dc6, type: 3}
 --- !u!1 &242972631982745067

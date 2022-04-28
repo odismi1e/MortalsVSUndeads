@@ -16,7 +16,7 @@ namespace Assets.SimpleLocalization
         private string Key;
         public void Start()
         {
-            Key = JoinStringsWithDot(PrimaryKey, FieldKey);
+            Key = DataManager.JoinStringsWithDot(PrimaryKey, FieldKey);
             Show();
             DataManager.DataChanged += Show;
         }
@@ -25,10 +25,7 @@ namespace Assets.SimpleLocalization
         {
             DataManager.DataChanged -= Show;
         }
-        private string JoinStringsWithDot(DataPrimaryKey primaryKey, DataFieldKey fieldKey)
-        {
-            return string.Join(".", primaryKey.ToString(), fieldKey.ToString());
-        }
+
         private void Show()
         {
             GetComponent<TextMeshProUGUI>().text = $"{Key}" + " = " + $"{DataManager.Parse(Key)}";

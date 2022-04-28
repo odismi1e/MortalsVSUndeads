@@ -46,17 +46,81 @@ public enum WindowName
     Current
 }
 
-public enum LocalizationKey
+public enum LocalizationButtonKey
 {
-    Play
-}
-public enum DataFieldKey
-{
-    ManaRegenerationRate,
-    ManaPerTick,
-    StartMana
+    Play,
+    Exit,
+    Shop,
+    Options
 }
 public enum DataPrimaryKey
 {
-    Mana
+    Mana,
+    Global,
+    Units,
+    EnemyUnits,
+    Enhancements,
+    Spells
+}
+public enum DataFieldKey
+{
+    //-----Mana-----//
+    ManaRegenerationRate,
+    ManaPerTick,
+    ManaStartValue,
+
+    //-----Global-----//
+    MaxNumCardsInHand,
+    MeleeAtackRange,
+    MinAttackSpeed,
+
+    //-----Units-----//
+    /*-----Swordsman------*/
+    SwordsmanHealth, 
+    SwordsmanDamage,
+    SwordsmanAttackSpeed,
+    SwordsmanAttackDistance,
+    SwordsmanDamageAbsorption,
+    SwordsmanManaCost,
+    /*-----Crossbowman-----*/
+    CrossbowmanHealth,
+    CrossbowmanDamage,
+    CrossbowmanAttackSpeed,
+    CrossbowmanArrowSpeed,
+    CrossbowmanArmorPenetration,
+    CrossbowmanManaCost,
+
+    //-----EnemyUnits-----//
+    /*-----Skeleton-----*/
+    SkeletonHealth,
+    SkeletonDamage,
+    SkeletonAttackSpeed,
+    SkeletonAttackDistance,
+    SkeletonSpeed,
+    SkeletonArmor,
+
+    //-----Enhancements-----//
+    /*-----Heal-----*/
+    HealQuantity,
+    HealCardManaCost,
+    /*-----Rage-----*/
+    RageAttackSpeed,
+    RageDuration,
+    RageCardManaCost,
+
+    //-----Spells-----//
+    /*-----FireExplosion-----*/
+    FireExplosionWidth,
+    FireExplosionHeight,
+    FireExplosionDamage,
+    FireExplosionDOTDamage,
+    FireExplosionDuration,
+    FireExplosionManaCost,
+    /*-----IceBlast-----*/
+    IceBlastWidth,
+    IceBlastHeight,
+    IceBlastDamage,
+    IceBlastSpeedDebuff,
+    IceBlastDuration,
+    IceBlastManaCost
 }

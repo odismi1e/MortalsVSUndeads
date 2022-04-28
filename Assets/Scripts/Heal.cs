@@ -8,7 +8,7 @@ public class Heal : MonoBehaviour
     {
             foreach (Entity a in GameController.Instance.Unit)
             {
-                a.SetHealtNow(GameManager.Instance.EnhancementsCard.HealQuantity + a.GetHealthNow());
+                a.SetHealtNow(GameManager.Instance.Enhancements.HealQuantity + a.GetHealthNow());
                 a.HpBar();
             }
             Destroy(gameObject);

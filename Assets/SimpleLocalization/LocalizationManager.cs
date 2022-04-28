@@ -35,11 +35,14 @@ namespace Assets.SimpleLocalization
         {
             Language = "English";
         }
-
-		/// <summary>
-		/// Read localization spreadsheets.
-		/// </summary>
-		public static void Read(string path = "Localization")
+        public static string JoinStringsWithDot(string listKey, string valueKey)
+        {
+            return string.Join(".", listKey.ToString(), valueKey.ToString());
+        }
+        /// <summary>
+        /// Read localization spreadsheets.
+        /// </summary>
+        public static void Read(string path = "Localization")
         {
             if (Dictionary.Count > 0) return;
 

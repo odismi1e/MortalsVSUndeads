@@ -122,7 +122,7 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
 
                 _cardHolderManager.SpawnCards[indexCard] = null;
 
-                for (int i = 0; i < GameManager.Instance.OtherFields.NumberCardsHand; i++)
+                for (int i = 0; i < GameManager.Instance.Global.MaxNumCardsInHand; i++)
                 {
                     if (_cardHolderManager.SpawnCards[i] != null)
                     {
@@ -155,7 +155,7 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
         int index =-1;
         if (ChooseCard)
         {
-            for (int i = 0; i < GameManager.Instance.OtherFields.NumberCardsHand; i++)
+            for (int i = 0; i < GameManager.Instance.Global.MaxNumCardsInHand; i++)
             {
                 if (_cardHolderManager.SpawnCards[i] == card)
                 {
@@ -180,7 +180,7 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
         }
         else
         {
-            for (int i = 0; i < GameManager.Instance.OtherFields.NumberCardsHand; i++)
+            for (int i = 0; i < GameManager.Instance.Global.MaxNumCardsInHand; i++)
             {
                 if (_cardHolderManager.SpawnCards[i] == card)
                 {
@@ -260,7 +260,7 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
     }
     private void ReturnTheSelectedCardsToTheDeck()
     {
-        for (int i = 0; i < GameManager.Instance.OtherFields.NumberCardsHand; i++)
+        for (int i = 0; i < GameManager.Instance.Global.MaxNumCardsInHand; i++)
         {
             if (_cardHolderManager.SpawnCards[i] != null)
             {

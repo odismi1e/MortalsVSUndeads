@@ -20,7 +20,10 @@ public static class DataManager
     {
         Column = "Value";
     }
-
+    public static string JoinStringsWithDot(DataPrimaryKey primaryKey, DataFieldKey fieldKey)
+    {
+        return string.Join(".", primaryKey.ToString(), fieldKey.ToString());
+    }
     public static void Read(string path = "Data")
     {
         if (Dictionary.Count > 0) return;
@@ -69,19 +72,12 @@ public static class DataManager
             Read();
         }
 
-        if (!Dictionary.ContainsKey(Column)) throw new KeyNotFoundException("Language not found: " + Column);
-        if (!Dictionary[Column].ContainsKey(Key)) throw new KeyNotFoundException("Translation not found: " + Key);
+        if (!Dictionary.ContainsKey(Column)) throw new KeyNotFoundException("Column not found: " + Column);
+        if (!Dictionary[Column].ContainsKey(Key)) throw new KeyNotFoundException("Key Value not found: " + Key);
 
         return float.Parse(Dictionary[Column][Key]);
     }
-    /*
-    public static string Localize(string localizationKey, params object[] args)
-    {
-        var pattern = Parse(localizationKey);
 
-        return string.Format(pattern, args);
-    }
-    */
     private static string ReplaceMarkers(string text)
     {
         return text.Replace("[Newline]", "\n");

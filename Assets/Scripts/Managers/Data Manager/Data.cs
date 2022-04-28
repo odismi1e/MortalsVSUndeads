@@ -16,6 +16,7 @@ public class Data : MonoBehaviour
 
         DataManager.Read(SaveFolder.name);
     }
+
     private void InitializeSingleton()
     {
         if (!Instance)
