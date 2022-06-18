@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 619861745
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -163,7 +163,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 744458772320561930, guid: d76a3bb295c4599408d55d7ac8fa92a3, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 744458772320561930, guid: d76a3bb295c4599408d55d7ac8fa92a3, type: 3}
       propertyPath: m_SortingOrder
@@ -175,7 +175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2213165978771444204, guid: d76a3bb295c4599408d55d7ac8fa92a3, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2213165978771444204, guid: d76a3bb295c4599408d55d7ac8fa92a3, type: 3}
       propertyPath: m_SortingOrder
@@ -238,8 +238,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8467315286754361076, guid: d76a3bb295c4599408d55d7ac8fa92a3, type: 3}
+      propertyPath: m_Color.b
+      value: 0.029988289
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467315286754361076, guid: d76a3bb295c4599408d55d7ac8fa92a3, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467315286754361076, guid: d76a3bb295c4599408d55d7ac8fa92a3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467315286754361076, guid: d76a3bb295c4599408d55d7ac8fa92a3, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8467315286754361076, guid: d76a3bb295c4599408d55d7ac8fa92a3, type: 3}
       propertyPath: m_SortingOrder

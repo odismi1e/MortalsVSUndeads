@@ -10,7 +10,8 @@ public enum Cards
 public enum Scenes
 {
     Main_Menu,
-    Level1
+    Level1,
+    Level2
 }
 public enum Language
 {
@@ -62,7 +63,7 @@ public enum DataPrimaryKey
     Global,
     Units,
     EnemyUnits,
-    Enhancements,
+    Buff,
     Spells
 }
 public enum DataFieldKey

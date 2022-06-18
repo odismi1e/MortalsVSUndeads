@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 124258704202811656}
   - component: {fileID: 2319076327922347459}
   m_Layer: 0
-  m_Name: Short_Sword
+  m_Name: Short Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -14,14 +14,14 @@ public class Rage : MonoBehaviour
                 StartCoroutine(RageCoroutin(a));
             }
             Active = false;
-            Destroy(gameObject, GameManager.Instance.Enhancements.RageDuration + .1f);
+            Destroy(gameObject, GameManager.Instance.Buffs.RageDuration + .1f);
         }
     }
     IEnumerator RageCoroutin(Entity entity)
     {
         float attackSpeedNow = entity.GetAttackSpeed();
-        entity.SetAttackSpeed(entity.GetAttackSpeed() + GameManager.Instance.Enhancements.RageAttackSpeed);
-        yield return new WaitForSeconds(GameManager.Instance.Enhancements.RageDuration);
+        entity.SetAttackSpeed(entity.GetAttackSpeed() + GameManager.Instance.Buffs.RageAttackSpeed);
+        yield return new WaitForSeconds(GameManager.Instance.Buffs.RageDuration);
         entity.SetAttackSpeed(attackSpeedNow);
     }
 }

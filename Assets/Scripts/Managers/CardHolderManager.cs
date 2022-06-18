@@ -10,6 +10,7 @@ public class CardHolderManager : MonoBehaviour
     [SerializeField] private Transform _cardHolderPosition;
     [SerializeField] private GameObject _card;
     [SerializeField] private Card[] _cardSO;
+    public List<Card> _cardsList; // TEST
     private int _cardsAmmount;
     private int _ind = 0;
 
@@ -19,6 +20,12 @@ public class CardHolderManager : MonoBehaviour
 
     void Start()
     {
+        _cardSO = new Card[_cardsList.Count];
+        for (int i = 0; i < _cardsList.Count; i++)
+        {
+            _cardSO[i] = _cardsList[i];
+        }
+
         _cardsAmmount = _cardSO.Length;
         SpawnCards = new GameObject[GameManager.Instance.Global.MaxNumCardsInHand];
 
@@ -53,12 +60,12 @@ public class CardHolderManager : MonoBehaviour
                 cardManager.SetMana( GameManager.Instance.Units.SwordsmanManaCost);
                 break;
             case (int)Cards.Healing:
-                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.Enhancements.HealCardManaCost.ToString();
-                cardManager.SetMana( GameManager.Instance.Enhancements.HealCardManaCost);
+                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.Buffs.HealCardManaCost.ToString();
+                cardManager.SetMana( GameManager.Instance.Buffs.HealCardManaCost);
                 break;
             case (int)Cards.Rage:
-                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.Enhancements.RageCardManaCost.ToString();
-                cardManager.SetMana( GameManager.Instance.Enhancements.RageCardManaCost);
+                card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.Buffs.RageCardManaCost.ToString();
+                cardManager.SetMana( GameManager.Instance.Buffs.RageCardManaCost);
                 break;
             case (int)Cards.FireExplosion:
                 card.GetComponentInChildren<TMP_Text>().text = GameManager.Instance.Spells.FireExplosionManaCost.ToString();
@@ -105,6 +112,15 @@ public class CardHolderManager : MonoBehaviour
         }
         yield return new WaitForSeconds(.5f);
         StartCoroutine(CardsCheckForDurability());
+    }
+
+    public void AddCard(Card CardSO) // TEST
+    {
+        _cardsList.Add(CardSO);
+    }
+    public void RemoveCard(Card CardSO) // TEST
+    {
+        _cardsList.Remove(CardSO);
     }
 }
 

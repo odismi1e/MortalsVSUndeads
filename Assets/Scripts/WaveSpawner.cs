@@ -21,56 +21,21 @@ public class WaveSpawner : MonoBehaviour
     {
         _indexNextWave = 1;
         _enemiesLeftToSpawn = _waves[0].WaveSettings.Length;
-        //SpawnersPosition(GridController.Instance.CentreGrid, GridController.Instance.HorizontalCount, GridController.Instance.HeightGrid);
         LaunchWave();
     }
     private void FixedUpdate()
     {
-        if (NumberOfLiveEnemies==0 && _currentWaveIndex==_indexNextWave)
+        if (NumberOfLiveEnemies == 0 && _currentWaveIndex == _indexNextWave)
         {
             _indexNextWave++;
             Timer.CountingEnemies();
             LaunchWave();
         }
+        else if (NumberOfLiveEnemies == 0 && _currentWaveIndex == _waves.Length - 1)
+        {
+            UI_Controller.Instance.SetWindowActive(WindowName.Win); // Убрать в отдельный класс, проверяющий условие победы\проигрыша
+        }
     }
-
-    //private IEnumerator SpawnEnemyInWave()
-    //{
-    //    if(_enemiesLeftToSpawn > 0)
-    //    {
-    //        yield return null;
-    //        if (_waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].Enemy != null &&
-    //           _waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].NeededSpawner!=null)
-    //        {
-    //            StartCoroutine(CreationEnemy(_waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].Enemy,
-    //                _waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].NeededSpawner.transform,
-    //                _waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].SpawnDelay));
-    //        }
-    //        _enemiesLeftToSpawn--;
-    //        _currentEnemyIndex++;
-    //        StartCoroutine(SpawnEnemyInWave());
-    //        //for(int i=0;i<_enemiesLeftToSpawn;i++)
-    //        //{
-    //        //    if (_waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].Enemy != null &&
-    //        //   _waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].NeededSpawner != null)
-    //        //    {
-    //        //        StartCoroutine(CreationEnemy(_waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].Enemy,
-    //        //            _waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].NeededSpawner.transform,
-    //        //            _waves[_currentWaveIndex].WaveSettings[_currentEnemyIndex].SpawnDelay));
-    //        //    }
-    //        //    _currentEnemyIndex++;
-    //        //}
-    //    }
-    //    else
-    //    {
-    //        if (_currentWaveIndex < _waves.Length - 1)
-    //        {
-    //            _currentWaveIndex++;
-    //            _enemiesLeftToSpawn = _waves[_currentWaveIndex].WaveSettings.Length;
-    //            _currentEnemyIndex = 0;
-    //        }
-    //    }
-    //}
     private IEnumerator CreationEnemy(GameObject enemy,Transform transform,float spawnDelay)
     {
         NumberOfLiveEnemies++;

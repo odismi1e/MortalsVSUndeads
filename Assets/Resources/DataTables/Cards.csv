@@ -1,7 +1,7 @@
 Key,Value,Type,Unit Measurement,Range Approximate - ( ) Strict - [ ]
 Mana.ManaRegenerationRate,5,Float,[sec.],"[0,5-20,0)"
 Mana.ManaPerTick,1,Int,[u.],[1-5)
-Mana.ManaStartValue,15,Int,[u.],[1-10)
+Mana.ManaStartValue,0,Int,[u.],[1-10)
 Global.MaxNumCardsInHand,6,Int,[u.],[1-10]
 Global.MeleeAtackRange,1,Float,[u.],"[0,0-2,0]"
 Global.MinAttackSpeed,"0,25",Float,[sec./a.],"[0,05-0,33]"
@@ -10,33 +10,33 @@ Units.SwordsmanAttackSpeed,1,Float,[a./s.],"[0,25-3,0]"
 Units.SwordsmanDamage,2,Float,[u.],"[0,0-10,0)"
 Units.SwordsmanDamageAbsorption,5,Float,[%/10],"[0,0-10,0]"
 Units.SwordsmanHealth,10,Float,[u.],"[1,0-25,0)"
-Units.SwordsmanManaCost,1,Int,[mana],[1-10]
-Units.CrossbowmanArmorPenetration,5,Float,[%/10],"[0,0-10,0]"
+Units.SwordsmanManaCost,1,Int,[mana],[1-11]
+Units.CrossbowmanArmorPenetration,5,Float,[% x 10],"[0,0-10,0]"
 Units.CrossbowmanArrowSpeed,10,Float,[u./sec.],"[1,0-20,0)"
 Units.CrossbowmanAttackSpeed,"0,33",Float,[a./sec.],"[0,25-3,0]"
 Units.CrossbowmanDamage,5,Float,[u.],"[0,0-10,0]"
 Units.CrossbowmanHealth,5,Float,[u.],"[1,0-25)"
-Units.CrossbowmanManaCost,1,Int,[mana],[1-10]
-EnemyUnits.SkeletonArmor,0,Float,[%/10],"[0,0-10,0]"
+Units.CrossbowmanManaCost,1,Int,[mana],[1-11]
+EnemyUnits.SkeletonArmor,0,Float,[% x 10],"[0,0-10,0]"
 EnemyUnits.SkeletonAttackDistance,1,Float,[u.],"[0,0-2,0]"
 EnemyUnits.SkeletonAttackSpeed,1,Float,[a./sec.],"[0,25-3,0]"
 EnemyUnits.SkeletonDamage,1,Float,[u.],"[0,0-10,0]"
 EnemyUnits.SkeletonHealth,15,Float,[u.],"[1,0-25,0)"
 EnemyUnits.SkeletonSpeed,"1,5",Float,[u./sec.],"(0,1-5,0)"
-Enhancements.HealCardManaCost,3,Int,[mana],[1-10]
-Enhancements.HealQuantity,10,Float,[health],"[1,0-25,0)"
-Enhancements.RageAttackSpeed,3,Float,[u.],"(0,5-10)"
-Enhancements.RageCardManaCost,2,Int,[mana],[1-10]
-Enhancements.RageDuration,5,Float,[sec.],"(1,0-10)"
-Spells.FireExplosionDamage,11,Float,[u.],"[1,0-25,0)"
+Buff.HealCardManaCost,3,Int,[mana],[1-11]
+Buff.HealQuantity,10,Float,[health],"[1,0-25,0)"
+Buff.RageAttackSpeed,3,Float,[u.],"(0,5-10)"
+Buff.RageCardManaCost,2,Int,[mana],[1-11]
+Buff.RageDuration,5,Float,[sec.],"(1,0-10)"
+Spells.FireExplosionDamage,10,Float,[u.],"[1,0-25,0)"
 Spells.FireExplosionDOTDamage,1,Float,[u./sec.],"(0,25-5)"
 Spells.FireExplosionDuration,5,Int,[sec.],[1-5]
 Spells.FireExplosionHeight,3,Int,[cell],[1-5]
 Spells.FireExplosionWidth,3,Int,[cell],[1-5]
-Spells.FireExplosionManaCost,5,Int,[mana],[1-10]
+Spells.FireExplosionManaCost,5,Int,[mana],[1-11]
 Spells.IceBlastDamage,5,Float,[u.],"[1,0-25,0)"
 Spells.IceBlastDuration,5,Float,[sec.],"(0,25-5)"
 Spells.IceBlastHeight,3,Int,[cell],[1-5]
 Spells.IceBlastWidth,3,Int,[cell],[1-5]
 Spells.IceBlastSpeedDebuff,50,Float,[%],"[0,0-100,0]"
-Spells.IceBlastManaCost,3,Int,[mana],[1-10]
+Spells.IceBlastManaCost,3,Int,[mana],[1-11]

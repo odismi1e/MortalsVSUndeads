@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public GlobalData Global;
     public UnitsData Units;
     public EnemyUnitsData EnemyUnits;
-    public EnhancementsData Enhancements;
+    public BuffsData Buffs;
     public SpellsData Spells;
     void Awake()
     {
@@ -58,12 +58,12 @@ public class GameManager : MonoBehaviour
             EnemyUnits.SkeletonHealth = DataManager.Parse(DataManager.JoinStringsWithDot(DataPrimaryKey.EnemyUnits, DataFieldKey.SkeletonHealth));
             EnemyUnits.SkeletonSpeed = DataManager.Parse(DataManager.JoinStringsWithDot(DataPrimaryKey.EnemyUnits, DataFieldKey.SkeletonSpeed));
 
-            Enhancements.HealCardManaCost = (int)DataManager.Parse(DataManager.JoinStringsWithDot(DataPrimaryKey.Enhancements, DataFieldKey.HealCardManaCost));
-            Enhancements.HealQuantity = DataManager.Parse(DataManager.JoinStringsWithDot(DataPrimaryKey.Enhancements, DataFieldKey.HealQuantity));
+            Buffs.HealCardManaCost = (int)DataManager.Parse(DataManager.JoinStringsWithDot(DataPrimaryKey.Buff, DataFieldKey.HealCardManaCost));
+            Buffs.HealQuantity = DataManager.Parse(DataManager.JoinStringsWithDot(DataPrimaryKey.Buff, DataFieldKey.HealQuantity));
 
-            Enhancements.RageAttackSpeed = DataManager.Parse(DataManager.JoinStringsWithDot(DataPrimaryKey.Enhancements, DataFieldKey.RageAttackSpeed));
-            Enhancements.RageCardManaCost = (int)DataManager.Parse(DataManager.JoinStringsWithDot(DataPrimaryKey.Enhancements, DataFieldKey.RageCardManaCost));
-            Enhancements.RageDuration = DataManager.Parse(DataManager.JoinStringsWithDot(DataPrimaryKey.Enhancements, DataFieldKey.RageDuration));
+            Buffs.RageAttackSpeed = DataManager.Parse(DataManager.JoinStringsWithDot(DataPrimaryKey.Buff, DataFieldKey.RageAttackSpeed));
+            Buffs.RageCardManaCost = (int)DataManager.Parse(DataManager.JoinStringsWithDot(DataPrimaryKey.Buff, DataFieldKey.RageCardManaCost));
+            Buffs.RageDuration = DataManager.Parse(DataManager.JoinStringsWithDot(DataPrimaryKey.Buff, DataFieldKey.RageDuration));
 
             Spells.FireExplosionDamage = DataManager.Parse(DataManager.JoinStringsWithDot(DataPrimaryKey.Spells, DataFieldKey.FireExplosionDamage));
             Spells.FireExplosionDOTDamage = DataManager.Parse(DataManager.JoinStringsWithDot(DataPrimaryKey.Spells, DataFieldKey.FireExplosionDOTDamage));
@@ -150,7 +150,7 @@ public class EnemyUnitsData
     public float SkeletonArmor;
 }
 [System.Serializable]
-public class EnhancementsData
+public class BuffsData
 {
     [Header("Heal")]
     public float HealQuantity;
