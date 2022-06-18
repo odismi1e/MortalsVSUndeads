@@ -26,5 +26,9 @@ public class LoadSceneButton : MonoBehaviour
     {
         SceneManager.LoadScene(scene.ToString());
         UI_Controller.Instance.CloseAll();
+        if (scene.ToString() == Scenes.Main_Menu.ToString())
+        {
+            UI_Controller.Instance.SetScreenActive(ScreenName.Start);
+        }
     }
 }

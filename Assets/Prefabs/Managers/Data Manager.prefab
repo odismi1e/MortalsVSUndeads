@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 7545434885987606919}
   - component: {fileID: 6716818228185849511}
   m_Layer: 0
-  m_Name: DataManager
+  m_Name: Data Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

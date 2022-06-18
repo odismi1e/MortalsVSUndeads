@@ -72,7 +72,7 @@ public class Enemy : Entity
             if (_healthNow <= 0)
             {
                 waveSpawner.NumberOfLiveEnemies--;
-                GameController.Instance.Timer.TimerDelta();
+                LevelController.Instance.Timer.TimerDelta();
                 GetHPBar().SetActive(false);
                 if (_attackCoroutine1 != null)
                 {

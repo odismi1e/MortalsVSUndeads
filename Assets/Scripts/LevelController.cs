@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class LevelController : MonoBehaviour
 {
-    static public GameController Instance;
+    static public LevelController Instance;
     public Timer Timer;
-    
+    public int NumberOfPassedUnitsBeforeDefeat;
+    [HideInInspector] public List<Entity> Unit;
+    [HideInInspector] public float ScreenScaleFactor;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -19,8 +21,6 @@ public class GameController : MonoBehaviour
             Instance = this;
         }
     }
-    public List<Entity> Unit;
-    public float ScreenScaleFactor;
     public void UnitDeleteList(GameObject gameObject,float duration=0)
     {
         var entity = gameObject.GetComponent<Entity>();

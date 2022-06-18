@@ -106,7 +106,7 @@ public class WaveSpawner : MonoBehaviour
         _spawners.transform.position = new Vector3(_spawnDistance + scale / 2, vector2.y, 0);
         for (int i = 0; i < 6; i++)
         {
-            _spawners.transform.GetChild(i).position = new Vector3(_spawnDistance + scale / 2, (vector2.y - height / 2) + ((height * (2 * i + 1)) / (col * 2)), 0);
+            _spawners.transform.GetChild(i).position = new Vector3(_spawnDistance + scale / 2, (vector2.y - height / 2) + ((height * (2 * i + 1)) / (col * 2)), 1);
         }
     }
     public Waves[] GetWaves()

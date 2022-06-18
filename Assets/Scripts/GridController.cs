@@ -41,9 +41,9 @@ public class GridController : MonoBehaviour
     }
     private void Start()
     {
-        GameController.Instance.ScreenScaleFactor = (float)WidthGrid / (float)_gridTransform.transform.localScale.x;
+        LevelController.Instance.ScreenScaleFactor = (float)WidthGrid / (float)_gridTransform.transform.localScale.x;
         GameManager.Instance.ScreenScaleFactor();
-        _waveSpawner.SpawnersPosition(GridController.Instance.CentreGrid, GridController.Instance.HorizontalCount, GridController.Instance.HeightGrid,_scaleSpawner* GameController.Instance.ScreenScaleFactor-_scaleSpawner);
+        _waveSpawner.SpawnersPosition(GridController.Instance.CentreGrid, GridController.Instance.HorizontalCount, GridController.Instance.HeightGrid,_scaleSpawner* LevelController.Instance.ScreenScaleFactor-_scaleSpawner);
     }
 
     public void GridTransform(GameObject gameObject)

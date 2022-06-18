@@ -21,7 +21,7 @@ public class Swordsman : Entity
         _damage = GameManager.Instance.Units.SwordsmanDamage;
         _attackSpeed = GameManager.Instance.Units.SwordsmanAttackSpeed;
 
-        GameController.Instance.Unit.Add(gameObject.GetComponent<Entity>());
+        LevelController.Instance.Unit.Add(gameObject.GetComponent<Entity>());
 
 
         _checkSecurityCoroutine = StartCoroutine(CheckSecurity());
@@ -44,7 +44,7 @@ public class Swordsman : Entity
                 gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 GetHPBar().SetActive(false);
 
-                GameController.Instance.UnitDeleteList(gameObject, _animations[0].length + 10);
+                LevelController.Instance.UnitDeleteList(gameObject, _animations[0].length + 10);
             }
             if (_state != 0 && _enemy == null)
             {

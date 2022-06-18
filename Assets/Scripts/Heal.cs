@@ -6,7 +6,7 @@ public class Heal : MonoBehaviour
 {
     private void Update()
     {
-            foreach (Entity a in GameController.Instance.Unit)
+            foreach (Entity a in LevelController.Instance.Unit)
             {
                 a.SetHealtNow(GameManager.Instance.Enhancements.HealQuantity + a.GetHealthNow());
                 a.HpBar();

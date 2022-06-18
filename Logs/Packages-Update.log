@@ -46,3 +46,12 @@ The following packages were updated:
   com.unity.mobile.notifications from version 1.4.2 to 2.0.0
   com.unity.test-framework from version 1.1.30 to 1.1.31
   com.unity.timeline from version 1.4.8 to 1.6.4
+
+=== Sun May  8 13:31:58 2022
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.2d.animation from version 7.0.4 to 7.0.5
+  com.unity.collab-proxy from version 1.15.15 to 1.15.16

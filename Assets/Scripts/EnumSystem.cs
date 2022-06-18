@@ -43,7 +43,10 @@ public enum WindowName
 
     Levels_Start,
 
-    Current
+    Current,
+
+    Win,
+    Lose
 }
 
 public enum LocalizationButtonKey
@@ -51,7 +54,7 @@ public enum LocalizationButtonKey
     Play,
     Exit,
     Shop,
-    Options
+    Settings
 }
 public enum DataPrimaryKey
 {

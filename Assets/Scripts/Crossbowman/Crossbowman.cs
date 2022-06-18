@@ -20,14 +20,14 @@ public class Crossbowman : Entity
         _attackSpeed = GameManager.Instance.Units.CrossbowmanAttackSpeed;
         StartCoroutine(CheckSecurity());
 
-        GameController.Instance.Unit.Add(gameObject.GetComponent<Entity>());
+        LevelController.Instance.Unit.Add(gameObject.GetComponent<Entity>());
     }
 
     private void FixedUpdate()
     {
             if (_healthNow <= 0)
             {
-                GameController.Instance.UnitDeleteList(gameObject);
+                LevelController.Instance.UnitDeleteList(gameObject);
             }
             if(checkSecurity)
             {
@@ -53,15 +53,18 @@ public class Crossbowman : Entity
     private IEnumerator Attack()
     {
         _attack = false;
-        yield return new WaitForSeconds(1f/_attackSpeed);
-        Instantiate(_crossbowArrow, _transformCrossbow.position,Quaternion.identity);
+        Instantiate(_crossbowArrow, _transformCrossbow.position, Quaternion.identity);
+        yield return new WaitForSeconds(1f/_attackSpeed);      
         coroutine = StartCoroutine(Attack());
     }
     private int QuantityEnemies()
     {
         int quantityEnemies = 0;
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(gameObject.transform.position.x+(GridController.Instance.WidthGrid / 2 + GridController.Instance.CentreGrid.x - gameObject.transform.position.x)/2,gameObject.transform.position.y),
-             new Vector2(GridController.Instance.WidthGrid/2+ GridController.Instance.CentreGrid.x-gameObject.transform.position.x, .2f),0);
+        Collider2D[] colliders = 
+        Physics2D.OverlapBoxAll
+        (new Vector2 (gameObject.transform.position.x+(GridController.Instance.WidthGrid / 2 + GridController.Instance.CentreGrid.x - gameObject.transform.position.x) / 2,gameObject.transform.position.y),
+         new Vector2 (GridController.Instance.WidthGrid/2 + GridController.Instance.CentreGrid.x-gameObject.transform.position.x, .2f),
+         0);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject.tag == "Enemy")
@@ -89,5 +92,13 @@ public class Crossbowman : Entity
         yield return new WaitForSeconds(.25f);
         CheckEnemy();
         checkSecurity = true;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube
+        (new Vector2(gameObject.transform.position.x + (GridController.Instance.WidthGrid / 2 + GridController.Instance.CentreGrid.x - gameObject.transform.position.x) / 2, gameObject.transform.position.y),
+         new Vector2(GridController.Instance.WidthGrid / 2 + GridController.Instance.CentreGrid.x - gameObject.transform.position.x, .2f));
     }
 }

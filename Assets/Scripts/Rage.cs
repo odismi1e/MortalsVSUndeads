@@ -9,7 +9,7 @@ public class Rage : MonoBehaviour
     {
         if (Active)
         {
-            foreach (Entity a in GameController.Instance.Unit)
+            foreach (Entity a in LevelController.Instance.Unit)
             {
                 StartCoroutine(RageCoroutin(a));
             }

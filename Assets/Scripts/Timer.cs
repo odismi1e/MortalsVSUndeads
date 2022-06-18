@@ -11,7 +11,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private float _timeUpdate;
     [SerializeField] private GameObject[] _WaveTimer; 
 
-    private int _enemyCost;
+    private int _enemiesQuantity;
     private int _waveCost;
     private int _currentWaveIndex=0;
 
@@ -25,21 +25,21 @@ public class Timer : MonoBehaviour
         }
         if(_waveCost>0)
         {
-            _enemyCost = _waveSpawner.GetWaves()[0].WaveSettings.Length;
+            _enemiesQuantity = _waveSpawner.GetWaves()[0].WaveSettings.Length;
         }
         _currentWaveIndex = 0;
     }
     public void CountingEnemies()
     {
             _currentWaveIndex++;
-            _enemyCost = _waveSpawner.GetWaves()[_currentWaveIndex].WaveSettings.Length; 
+            _enemiesQuantity = _waveSpawner.GetWaves()[_currentWaveIndex].WaveSettings.Length; 
     }
     public IEnumerator TimerDeltaCoroutine()
     {
-        int enemuCost = _enemyCost;
+        int enemiesQuantity = _enemiesQuantity;
         for(int i=0; i<_updateFrequency;i++)
         {
-            _timer.fillAmount += (float)(1f /(float) (_waveCost*enemuCost*_updateFrequency));
+            _timer.fillAmount += (float)(1f /(float) (_waveCost*enemiesQuantity*_updateFrequency));
             yield return new WaitForSeconds(_timeUpdate / _updateFrequency);
         }
     }
